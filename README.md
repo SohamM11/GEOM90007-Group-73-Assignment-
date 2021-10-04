@@ -72,27 +72,27 @@ The following is a list of suggested layers and tables. You can download them he
  
 |Data theme| 	Data source| 	License|
 |----------|:-----------:|:-------:|
-BusMetroRoutes 	DELWP 	CC BY 4.0
-BusRegionalRoutes 	DELWP 	CC BY 4.0
-CityActivitiesAndPlannedWorks 	City of Melbourne 	CC BY 4.0
-Melbourne_Bicycle_Routes_MGA 	City of Melbourne 	CC BY 4.0
-Melbourne_Building_Footprints_MGA 	City of Melbourne 	CC BY 4.0
-Melbourne_CityCircle_tram_MGA 	City of Melbourne 	CC BY 4.0
-Melbourne_Municipal_Boundary 	City of Melbourne 	CC BY 4.0
-Melbourne_OpenSpace 	DELWP 	CC BY 4.0
-Melbourne_POIs 	City of Melbourne 	CC BY 4.0
-Melbourne_Roads 	City of Melbourne 	CC BY 4.0
-Melbourne_Street_Names_MGA 	City of Melbourne 	CC BY 4.0
-Melbourne_Tram_Routes_MGA 	DELWP 	CC BY 4.0
-mtp_ees_future_stn_entrances (Metro Tunnel) 	DELWP 	CC BY 4.0
-mtp_ees_station_entrances (Metro Tunnel) 	DELWP 	CC BY 4.0
-mtp_ees_tunnel_entrances (Metro Tunnel) 	DELWP 	CC BY 4.0
-mtp_ees_underground_rail_track (Metro Tunnel) 	DELWP 	CC BY 4.0
-Road_Use_Hierarchy 	DELWP 	CC BY 4.0
-SuperSundayBikeCount 	City of Melbourne 	CC BY 4.0
-TaxiRank 	City of Melbourne 	CC BY 4.0
-trainCorridorCentreline 	DELWP 	CC BY 4.0
-trainStations 	DELWP 	CC BY 4.0
+|BusMetroRoutes| 	DELWP| 	CC BY 4.0|
+|BusRegionalRoutes| 	DELWP| 	CC BY 4.0|
+|CityActivitiesAndPlannedWorks| 	City of Melbourne| 	CC BY 4.0|
+|Melbourne_Bicycle_Routes_MGA| 	City of Melbourne| 	CC BY 4.0|
+|Melbourne_Building_Footprints_MGA| 	City of Melbourne| 	CC BY 4.0|
+|Melbourne_CityCircle_tram_MGA| 	City of Melbourne| 	CC BY 4.0|
+|Melbourne_Municipal_Boundary| 	City of Melbourne| 	CC BY 4.0|
+|Melbourne_OpenSpace| 	DELWP| 	CC BY 4.0|
+|Melbourne_POIs| 	City of Melbourne| 	CC BY 4.0|
+|Melbourne_Roads| 	City of Melbourne| 	CC BY 4.0|
+|Melbourne_Street_Names_MGA| 	City of Melbourne| 	CC BY 4.0|
+|Melbourne_Tram_Routes_MGA| 	DELWP| 	CC BY 4.0|
+|mtp_ees_future_stn_entrances (Metro Tunnel)| 	DELWP| 	CC BY 4.0|
+|mtp_ees_station_entrances (Metro Tunnel)| 	DELWP| 	CC BY 4.0|
+|mtp_ees_tunnel_entrances (Metro Tunnel)| 	DELWP| 	CC BY 4.0|
+|mtp_ees_underground_rail_track (Metro Tunnel)| 	DELWP| 	CC BY 4.0|
+|Road_Use_Hierarchy| 	DELWP| 	CC BY 4.0|
+|SuperSundayBikeCount| 	City of Melbourne| 	CC BY 4.0|
+|TaxiRank| 	City of Melbourne| 	CC BY 4.0|
+|trainCorridorCentreline| 	DELWP| 	CC BY 4.0|
+|trainStations| 	DELWP| 	CC BY 4.0|
 
  
 
