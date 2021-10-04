@@ -70,7 +70,8 @@ Datasets
 The following is a list of suggested layers and tables. You can download them here Download download them here as a geodatabase (.gdb) - extract the folder from the .zip file without changing the folder name.
 
  
-Data theme 	Data source 	License
+|Data theme| 	Data source| 	License|
+|----------|:-----------:|:-------:|
 BusMetroRoutes 	DELWP 	CC BY 4.0
 BusRegionalRoutes 	DELWP 	CC BY 4.0
 CityActivitiesAndPlannedWorks 	City of Melbourne 	CC BY 4.0
