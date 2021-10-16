@@ -1,0 +1,228 @@
+@font-face {
+    font-family: Helvetica Bold;
+    src: url(Fonts/Helvetica-Bold.ttf)
+}
+@font-face {
+    font-family: Helvetica;
+    src: url(Fonts/Helvetica.ttf)
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+}
+.showcase{
+    position: top;
+        right: 0;
+        width: 100%;
+        min-height: 100vh;
+        padding: 100px;
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        color: #fff;
+    }
+.showcase video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+}
+.text{
+    position: absolute;
+    z-index: 10;
+    font-size: 2em;
+    line-height: 2em;
+    font-family: "Helvetica Bold";
+    color: black;
+    }
+.text p{
+        font-family: Helvetica;
+        font-size: 0.60em;
+        margin-top: 20px;
+        color: darkgray;
+    }
+
+.History{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.History p{
+    font-size: 14px;
+    font-family: Helvetica;
+    font-weight: 300;
+    padding: 10px;
+    color: black;
+}
+
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.column-col{
+    flex-basis: 50%;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.column-col h1{
+    font-size: 36px;
+    font-family: Helvetica Bold;
+    font-weight: 600;
+    padding-top: 20px;
+    text-align: left;
+    padding-left: 10px;
+}
+h3{
+    margin: 10px 0;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 10px;
+}
+p{
+    text-align: left;
+    padding-left: 10px;
+}
+.column-col:hover{
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.5);
+}
+@media(max-width: 700px){
+    .row{
+        flex-direction: column;
+    }
+}
+.column-col img{
+    width: 100%;
+}
+.column-col p{
+    font-family: Helvetica;
+    line-height: 1.2em;
+}
+
+.row2{
+    display: flex;
+    justify-content: space-evenly;
+}
+.col-col{
+    flex-basis: 50%;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.col-col h1{
+    font-size: 36px;
+    font-family: Helvetica Bold;
+    font-weight: 600;
+    padding-top: 20px;
+    text-align: left;
+    padding-left: 10px;
+}
+h3{
+    margin: 10px 0;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 10px;
+}
+p{
+    text-align: left;
+    padding-left: 10px;
+    font-weight: 400;
+}
+.col-col:hover{
+    box-shadow: 0 0 20px 0px rgba(0,0,0,0.5);
+}
+@media(max-width: 700px){
+    .row{
+        flex-direction: column;
+    }
+}
+.col-col img{
+    width: 100%;
+}
+.col-col p{
+    font-family: Helvetica;
+    line-height: 1.2em;
+}
+@media(max-width: 700px){
+    .row2{
+        flex-direction: column;
+    }
+}
+
+}
+.geod h1{
+    font-size: 36px;
+    font-family: Helvetica Bold;
+    font-weight: 600;
+    padding-top: 20px;
+    text-align: left;
+    padding-left: 10px;
+}
+.geod #map{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+}
+
+
+
+.pop{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+#myChart{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.spacer{
+    flex-basis: 50%;
+    background: white;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden; 
+}
+.spacer h1{
+        font-size: 36px;
+        font-family: Helvetica Bold;
+        font-weight: 600;
+        padding-top: 20px;
+        text-align: left;
+        padding-left: 10px;
+}
+
+.Transport{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+
+}
+.spacer h1{
+    font-size: 36px;
+    font-family: Helvetica Bold;
+    font-weight: 600;
+    padding-top: 20px;
+    text-align: left;
+    padding-left: 10px;
