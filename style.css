@@ -15,12 +15,16 @@
 body{
     overflow-x: hidden;
 }
+#particles-js{
+    background:rgb(255, 255, 255);
+    z-index: -500;
+}
 .showcase{
     position: top;
         right: 0;
         width: 100%;
         min-height: 100vh;
-        padding: 100px;
+        padding: 50px;
         display: flex;
         justify-content: space-between;
         background-color: white;
@@ -165,7 +169,6 @@ p{
         flex-direction: column;
     }
 }
-
 }
 .geod h1{
     font-size: 36px;
@@ -181,9 +184,6 @@ p{
         bottom: 0;
         width: 100%;
 }
-
-
-
 .pop{
     width: 80%;
     margin: auto;
@@ -196,7 +196,7 @@ p{
 }
 
 .spacer{
-    flex-basis: 50%;
+    flex-basis: 100%;
     background: white;
     margin-bottom: 30px;
     position: relative;
@@ -210,7 +210,15 @@ p{
         text-align: left;
         padding-left: 10px;
 }
+@media(max-width: 700px){
+    .pop{
+        flex-direction: column;
+    }
 
+@media(max-width: 700px){
+     .spacer{
+      flex-direction: column;
+    }
 .Transport{
     position: relative;
     width: 100%;
@@ -226,3 +234,4 @@ p{
     padding-top: 20px;
     text-align: left;
     padding-left: 10px;
+}

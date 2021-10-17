@@ -9,7 +9,6 @@
 </head>
 <body>
     <section class="showcase">
-        <!---<video src="Assets/skyline_melb.mp4" muted loop autoplay></video>--->
         <div class="text">
             <h1>A study on the <br>
                 Urban Metropolitan <br> Area of <br> Melbourne</h1>
@@ -17,6 +16,9 @@
                 <h6>A data initiative</h6>
         </div>
     </section>
+    <div id="particles-js"></div>
+    <script type="text/javascript" src="JS/particles.js"></script>
+    <script type="text/javascript" src="JS/app.js"></script>
     <section class="History">
         <div class="row">
             <div class="column-col" data-aos="fade-right">
@@ -89,13 +91,38 @@
                      aut similique! Assumenda reprehenderit quos, 
                     aperiam magni provident veritatis dignissimos!</p>
                 </div>
-            </div>   
+            </div>
+            <div class="row2">
+    
+              <div class="col-col" data-aos="fade-right">
+              <h3>In the 18th Century and before</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, 
+                  vel! Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                  Velit fugit mollitia autem! Assumenda numquam debitis aspernatur 
+                  error a obcaecati ducimus totam ab distinctio enim eum, maxime 
+                  cupiditate blanditiis, voluptas Lorem ipsum, dolor sit amet 
+                  consectetur adipisicing elit. Excepturi dolor laboriosam vero 
+                  aspernatur debitis voluptatem, explicabo tempora at consequuntur expedita, 
+                  error quos commodi velit maiores adipisci dolorum similique repudiandae? 
+                  Nemo, aspernatur facilis dicta placeat necessitatibus in non molestiae 
+                  deserunt aliquid illum vero maxime a provident earum tempora quo ea! Itaque,
+                   quis officiis iure dolorum vitae esse aspernatur ut quibusdam iusto 
+                   aut similique! Assumenda reprehenderit quos, 
+                  aperiam magni provident veritatis dignissimos!</p>
+              </div>
+
+              <div class="col-col" data-aos="fade-left">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Merri_Creek_Plenty_Ranges-Troedel.jpg/450px-Merri_Creek_Plenty_Ranges-Troedel.jpg">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              </div>
+          </div>
+             
     </section>
 <!---Geographic Data 3D Terrain visualisation-->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
 <section class="geod">
-    <div id="map" style="width: 100%; height:80vh"></div>
+    <div id="map" style="width: 100%; height:100vh"></div>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiaGVsbG9odW1hbnMiLCJhIjoiY2t1ZDY3MHdjMTZ6ZTJwbG11djdhNm5pdCJ9.gj57wkUxjsC05lEI69lcDw';
     const map = new mapboxgl.Map({
@@ -159,192 +186,200 @@
     </script>   
 </section>
 
-
-
-<section class="pop">
-    <div class="row">
-        <div class="spacer" data-aos="fade-in">
-        <h1>Population</h1>
-        <h3>De-facto Capital</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, 
-                vel! Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Velit fugit mollitia autem! Assumenda numquam debitis aspernatur 
-                error a obcaecati ducimus totam ab distinctio enim eum, maxime 
-                cupiditate blanditiis, voluptas Lorem ipsum, dolor sit amet 
-                consectetur adipisicing elit. Excepturi dolor laboriosam vero 
-                aspernatur debitis voluptatem</p>
-        </div>
-        <script src="https://d3js.org/d3.v7.min.js"></script>
-        <div>
-            <div class="spacer" id="myChart"></div>
-         </div>
+<!--Population Charts-->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<section class="History">
+  <div class="">
+    <div class="spacer">
+      <h1>Population</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, 
+        vel! Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Velit fugit mollitia autem! Assumenda numquam debitis aspernatur 
+        error a obcaecati ducimus totam ab distinctio enim eum, maxime 
+        cupiditate blanditiis, voluptas Lorem ipsum, dolor sit amet 
+        consectetur adipisicing elit. Excepturi dolor laboriosam vero 
+        aspernatur debitis voluptatem, explicabo tempora at consequuntur expedita, 
+        error quos commodi velit maiores adipisci dolorum similique repudiandae? 
+        Nemo, aspernatur facilis dicta placeat necessitatibus in non molestiae 
+        deserunt aliquid illum vero maxime a provident earum tempora quo ea! Itaque,
+         quis officiis iure dolorum vitae esse aspernatur ut quibusdam iusto 
+         aut similique! Assumenda reprehenderit quos, 
+        aperiam magni provident veritatis dignissimos!</p>
+    </div>
+    <div class="spacer" id="Past"></div>
+  </div>
     <script>
-        const data = [
+      const data = [
+      {
+          date: 1950,
+          Population: 1332000,
+        },
         {
-            date: 1950,
-            Population: 1332000,
-          },
-          {
-            date: 1955 ,
-            Population: 1574000,
-            Annual  : 3.28
-          },
-          {
-            date: 1960 ,
-            Population: 1851000,
-            Annual  : 3.29
-          },
-          {
-            date: 1965 ,
-            Population: 2068000,
-            Annual  : 1.97
-          },
-          
-          {
-            date: 1970 ,
-            Population: 2499000,
-            Annual  : 4.34
-          },
-          
-          {
-            date: 1975 ,
-            Population: 2732000,
-            Annual  : 1.19
-          },
-          
-          {
-            date: 1980 ,
-            Population: 2839000,
-            Annual  : 0.67
-          },
-          
-          {
-            date: 1985 ,
-            Population: 2969000,
-            Annual  : 0.95
-          },
-          {
-            date: 1990 ,
-            Population: 3154000,
-            Annual  : 1.28
-          },
-          {
-            date: 1995 ,
-            Population: 3283000,
-            Annual  : 0.71
-          },
-          {
-            date: 2000 ,
-            Population: 3361000,
-            Annual  : 0.42
-          },
-          {
-            date: 2005 ,
-            Population: 3573000,
-            Annual  : 1.45
-          },
-          {
-            date: 2010 ,
-            Population: 3932000,
-            Annual  : 2.05
-          },
-          {
-            date: 2015 ,
-            Population: 4430000,
-            Annual  : 2.5
-          },
-          {
-            date: 2020 ,
-            Population: 4968000,
-            Annual  : 2.01
-          },
-
-        ];
-        // Create SVG and padding for the chart
-        const svg = d3
-        .select("#myChart")
-        .append("svg")
-        .attr("height", 700)
-        .attr("width", 700);
-        const margin = { top: 0, bottom: 50, left: 150, right: 150};
-        const chart = svg.append("g").attr("transform", `translate(${margin.left},0)`);
-        const width = +svg.attr("width") - margin.left - margin.right;
-        const height = +svg.attr("height") - margin.top - margin.bottom;
-        const grp = chart
-        .append("g")
-        .attr("transform", `translate(-${margin.left},-${margin.top})`);
-
-        // Create scales
-        const yScale = d3
-        .scaleLinear()
-        .range([height, 0])
-        .domain([0, d3.max(data, dataPoint => dataPoint.Population)]);
-        const xScale = d3
-        .scaleLinear()
-        .range([0, width])
-        .domain(d3.extent(data, dataPoint => dataPoint.date));
-
-        const line = d3
-        .line()
-        .x(dataPoint => xScale(dataPoint.date))
-        .y(dataPoint => yScale(dataPoint.Population));
+          date: 1955 ,
+          Population: 1574000,
+          Annual  : 3.28
+        },
+        {
+          date: 1960 ,
+          Population: 1851000,
+          Annual  : 3.29
+        },
+        {
+          date: 1965 ,
+          Population: 2068000,
+          Annual  : 1.97
+        },
         
-        // Add path
+        {
+          date: 1970 ,
+          Population: 2499000,
+          Annual  : 4.34
+        },
+        
+        {
+          date: 1975 ,
+          Population: 2732000,
+          Annual  : 1.19
+        },
+        
+        {
+          date: 1980 ,
+          Population: 2839000,
+          Annual  : 0.67
+        },
+        
+        {
+          date: 1985 ,
+          Population: 2969000,
+          Annual  : 0.95
+        },
+        {
+          date: 1990 ,
+          Population: 3154000,
+          Annual  : 1.28
+        },
+        {
+          date: 1995 ,
+          Population: 3283000,
+          Annual  : 0.71
+        },
+        {
+          date: 2000 ,
+          Population: 3361000,
+          Annual  : 0.42
+        },
+        {
+          date: 2005 ,
+          Population: 3573000,
+          Annual  : 1.45
+        },
+        {
+          date: 2010 ,
+          Population: 3932000,
+          Annual  : 2.05
+        },
+        {
+          date: 2015 ,
+          Population: 4430000,
+          Annual  : 2.5
+        },
+        {
+          date: 2020 ,
+          Population: 4968000,
+          Annual  : 2.01
+        },
+      
+      ];
+      // Create SVG and padding for the chart
+      const svg = d3
+      .select("#Past")
+      .append("svg")
+      .attr("height", 600)
+      .attr("width", 650);
+      const margin = { top: 100, bottom: 50, left: 100, right: 100};
+      const chart = svg.append("g").attr("transform", `translate(${margin.left},0)`);
+      const width = +svg.attr("width") - margin.left - margin.right;
+      const height = +svg.attr("height") - margin.top - margin.bottom;
+      const grp = chart
+      .append("g")
+      .attr("transform", `translate(-${margin.left},-${margin.top})`);
+      
+      // Create scales
+      const yScale = d3
+      .scaleLinear()
+      .range([height, 0])
+      .domain([0, d3.max(data, dataPoint => dataPoint.Population)]);
+      const xScale = d3
+      .scaleLinear()
+      .range([0, width])
+      .domain(d3.extent(data, dataPoint => dataPoint.date));
+      
+      const line = d3
+      .line()
+      .x(dataPoint => xScale(dataPoint.date))
+      .y(dataPoint => yScale(dataPoint.Population));
+      
+      // Add path
+      const addPath = () => {
         const path = grp
         .append("path")
         .attr("transform", `translate(${margin.left},0)`)
         .datum(data)
         .attr("fill", "none")
-        .attr("stroke", "red")
+        .attr("stroke", "steelblue")
         .attr("stroke-linejoin", "round")
         .attr("stroke-linecap", "round")
-        .attr("stroke-width", 3)
+        .attr("stroke-width", 4)
         .attr("d", line);
-
+      
         const pathLength = path.node().getTotalLength();
         const transitionPath = d3
         .transition()
         .ease(d3.easeSin)
-        .duration(2500);
-
+        .duration(6000)
+        .on("end", loopPath);
+      
         path
         .attr("stroke-dashoffset", pathLength)
         .attr("stroke-dasharray", pathLength)
         .transition(transitionPath)
         .attr("stroke-dashoffset", 0);
-        // Add the X Axis
-        chart
-        .append("g")
-        .attr("transform", `translate(0,${height})`)
-        .call(d3.axisBottom(xScale).ticks(data.length))
-        .append("text")
-        .attr("class", "x label")
-        .attr("text-anchor", "end")
-        .attr("x", width)
-        .attr("y", height - 6)
-        .text("YEAR");
-        // text label for the x axis
-        svg.append("text")
-        .attr("x", width / 2)
-        .attr("y",  height + margin.bottom)
-        .style("text-anchor", "middle")
-        .attr("color", "red")
-        .text("Year");
-        // Add the Y Axis
-        chart
-        .append("g")
-        .attr("transform", `translate(0, 0)`)
-        .call(d3.axisLeft(yScale));
-        // Add the Y Axis
+      }
+      
+      const loopPath = () => {
+        grp.select("path").remove();
+        addPath();
+      }
+      
+      addPath();
 
-        svg.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", margin.left - 100)
-        .attr("x",0 - (height / 2))
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .text("Population");
-    </script>
+      // Add the X Axis
+      chart
+      .append("g")
+      .attr("transform", `translate(0,${height})`)
+      .call(d3.axisBottom(xScale).ticks(data.length));
+
+      svg.append("text")      // text label for the x axis
+      .attr("x", width / 2 )
+      .attr("y",  height + margin.bottom)
+      .style("text-anchor", "middle")
+      .text("Year");
+      // Add the Y Axis
+      chart
+      .append("g")
+      .attr("transform", `translate(0, 0)`)
+      .call(d3.axisLeft(yScale));
+
+      svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Population");
+      
+      </script>
+  </div>
 </section>
 
 
@@ -372,26 +407,54 @@
 
 
 <!---Demographic Data Population/Ethinicity/BrithRates/GenderRation/IncomeData/CrimeData-->
+<section class="History">
+  <div class="row">
+      <div class="spacer" data-aos="fade-in">
+      <h1>Demographic Analysis</h1>
+      <h3>De-facto Capital</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, 
+              vel! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+      <div class="spacer">
+        <h3>De-facto Capital</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, 
+            vel! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
 <!--Urban Infrastructure and Planning BuildingsCategoricalData/BuildingHistoryData/WorkMovemment/OpenSpaces-->
 <!--Housing Rent/HousePrices and spread-->
 <!--Transport Network Trams/Cycling/Taxies/TrafficData(Automoblies and humans time wise)-->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css' rel='stylesheet' />
 
-<section class="Transport">
+<section class="History">
     <div class="row">
-        <div class="spacer" data-aos="fade-in">
-        <h1>Commute</h1>
+        <div class="column-col" data-aos="fade-in">
+        <h1>Transportion Network</h1>
         <h3>De-facto Capital</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, 
                 vel! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
-        <div class="spacer">
-            <iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/hellohumans/ckutmc9y57jhz17ry0aqa571n.html?title=false&access_token=pk.eyJ1IjoiaGVsbG9odW1hbnMiLCJhIjoiY2t1ZDY3MHdjMTZ6ZTJwbG11djdhNm5pdCJ9.gj57wkUxjsC05lEI69lcDw&zoomwheel=false#9.86/-37.8395/144.9895" title="Navigation" style="border:none;"></iframe>
+        <div class="column-col">
+            <iframe width='100%' height='500px' src="https://api.mapbox.com/styles/v1/hellohumans/ckutmc9y57jhz17ry0aqa571n.html?title=false&access_token=pk.eyJ1IjoiaGVsbG9odW1hbnMiLCJhIjoiY2t1ZDY3MHdjMTZ6ZTJwbG11djdhNm5pdCJ9.gj57wkUxjsC05lEI69lcDw&zoomwheel=false#9.86/-37.8395/144.9895" title="Navigation" style="border:none;"></iframe>
         </div>
+    </div>
 <!--DigitalData(PartiallyAPartof)-->
 <!--coffee-->
-    <section class="coffee"></section>
+<div id="particles-js"></div>
+    <section class="coffee">
+      <div>
+          <div>
+
+          </div>
+          <div>
+
+          </div>
+      </div>
+    </section>
+
+
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({
     offset: 120,
