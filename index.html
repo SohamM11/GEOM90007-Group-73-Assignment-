@@ -120,13 +120,13 @@
     </section>
 <!---Geographic Data 3D Terrain visualisation-->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet'/>
 <section class="geod">
-    <div id="map" style="width: 100%; height:100vh"></div>
+    <div id="map" style="width: 100%; height:100vh;"></div>
     <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiaGVsbG9odW1hbnMiLCJhIjoiY2t1ZDY3MHdjMTZ6ZTJwbG11djdhNm5pdCJ9.gj57wkUxjsC05lEI69lcDw';
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic2RpZ2hlIiwiYSI6ImNrdDN3OTdpajB5Y2Yyb3BnOTM1bG9xNnAifQ._3qrPrtiR2sRnuaGWG6tZA';
     const map = new mapboxgl.Map({
-    style: 'mapbox://styles/hellohumans/ckutb73if5uzy17mr6fc44u4g',
+    style: 'mapbox://styles/sdighe/ckuv4uqovn09u17prh84g8r4h',
     center: [144.9631, -37.8136],
     zoom: 15.5,
     pitch: 45,
@@ -187,7 +187,7 @@
 </section>
 
 <!--Population Charts-->
-<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
 <section class="History">
   <div class="">
     <div class="spacer">
@@ -308,7 +308,7 @@
       const yScale = d3
       .scaleLinear()
       .range([height, 0])
-      .domain([0, d3.max(data, dataPoint => dataPoint.Population)]);
+      .domain([000000, d3.max(data, dataPoint => dataPoint.Population)]);
       const xScale = d3
       .scaleLinear()
       .range([0, width])
@@ -383,30 +383,9 @@
 </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!---Demographic Data Population/Ethinicity/BrithRates/GenderRation/IncomeData/CrimeData-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.css" rel="stylesheet" type="text/css">
 <section class="History">
   <div class="row">
       <div class="spacer" data-aos="fade-in">
@@ -419,14 +398,82 @@
         <h3>De-facto Capital</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, 
             vel! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      </div>
-    </div>
+      </div>  
+  </div>
+  <div class="row">
+    <div id="chart1">hello</div> 
+  </div> 
+  <script>
+    var chart1 = c3.generate({
+    bindto: '#chart1',
+      data: {
+        order:'desc',
+        columns: [
+          ['1 Bedroom',200.0,210.0,240.0,240.0,250.0,260.0,270.0,280.0,300.0,345.0,350.0,370.0,375.0,370.0,370.0,380.0,370.0,390.0,415.0],
+          ['2 Bedroom',298.0,310.0,320.0,330.0,340.0,340.0,350.0,370.0,420.0,458.0,480.0,490.0,500.0,500.0,500.0,500.0,520.0,530.0,570.0],
+          ['3 Bedroom',380.0,418.0,413.0,450.0,450.0,460.0,478.0,510.0,580.0,590.0,650.0,660.0,660.0,680.0,705.0,691.0,700.0,730.0,770.0],
+          ['4 Bedroom',380.0,350.0,430.0,398.0,420.0,440.0,380.0,550.0,645.0,670.0,750.0,770.0,800.0,815.0,800.0,845.0,890.0,880.0,860.0],
+        ],
+        type: 'line',
+      },
+      interpolation: {
+        type: "basis"
+      },
+      axis: {
+        x: {
+          type: 'category',
+          categories: ['1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017'],
+          label: { // ADD
+            text: 'Year',
+            position: 'outer-middle'
+          }
+        },
+        y:{
+          show: true,
+          label: { // ADD
+            text: 'Rent ($/week)',
+            position: 'outer-middle'
+          },
+        }, 
+      },
+      tooltip: {
+        grouped: false,
+        contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+          var $$ = this, config = $$.config, CLASS = $$.CLASS,
+            titleFormat = config.tooltip_format_title || defaultTitleFormat,
+            nameFormat = config.tooltip_format_name || function (name) { return name; },
+            valueFormat = config.tooltip_format_value || defaultValueFormat,
+            text, i, title, value, name, bgcolor;
+            for (i = 0; i < d.length; i++){
+              
+              if (! text) {
+                title = titleFormat(d[i].x,d[i].index);
+                text = "<table class='" + CLASS.tooltip + "'>" + (title || title === 0 ? "<tr><th colspan='2'>" + title + "</th></tr>" : "");
+            }
+            name = nameFormat(d[i].name);
+            value = valueFormat(d[i].value, d[i].ratio, d[i].id, d[i].index);
+            bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
+            text += "<tr class='" + CLASS.tooltipName + "-" + d[i].id + "'>";
+            text += "<td class='name'><span style='background-color:" + bgcolor + "'></span>" + name + "</td>";
+            text += "<td class='value'>$ " + value + "</td>";
+            text += "</tr>";
+            }
+        return text+"</table>";
+        },
+      },
+      color: {
+        pattern: ['#1f77b4', '#ff7f0e', '#ffbb78', '#2ca02c', '#d62728', '#ff9896', '#9467bd', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5']
+      },
+      tooltip: {
+      grouped: false,
+    }
+  });
+  </script> 
 <!--Urban Infrastructure and Planning BuildingsCategoricalData/BuildingHistoryData/WorkMovemment/OpenSpaces-->
 <!--Housing Rent/HousePrices and spread-->
 <!--Transport Network Trams/Cycling/Taxies/TrafficData(Automoblies and humans time wise)-->
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css' rel='stylesheet' />
-
 <section class="History">
     <div class="row">
         <div class="column-col" data-aos="fade-in">
@@ -436,9 +483,10 @@
                 vel! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
         <div class="column-col">
-            <iframe width='100%' height='500px' src="https://api.mapbox.com/styles/v1/hellohumans/ckutmc9y57jhz17ry0aqa571n.html?title=false&access_token=pk.eyJ1IjoiaGVsbG9odW1hbnMiLCJhIjoiY2t1ZDY3MHdjMTZ6ZTJwbG11djdhNm5pdCJ9.gj57wkUxjsC05lEI69lcDw&zoomwheel=false#9.86/-37.8395/144.9895" title="Navigation" style="border:none;"></iframe>
+        add link to transport here  
         </div>
     </div>
+ 
 <!--DigitalData(PartiallyAPartof)-->
 <!--coffee-->
 <div id="particles-js"></div>
