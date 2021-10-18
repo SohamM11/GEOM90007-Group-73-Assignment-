@@ -9,18 +9,24 @@
 </head>
 <body>
     <section class="showcase">
-        <div class="text">
+        <div class="text rellax" data-rellax-speed="-10">
             <h1>A study on the <br>
                 Urban Metropolitan <br> Area of <br> Melbourne</h1>
                 <p>37.8136° S, 144.9631° E</p>
                 <h6>A data initiative</h6>
         </div>
     </section>
+    <div class="rellax" data-rellax-speed="-3" style="position: absolute; padding: 50px; left:2p00x; 
+    font-family: Helvetica Bold; font-size:20px; color:#40c095">
+    To understand, account and realise the city of Melbourne</div>
     <div id="particles-js"></div>
     <script type="text/javascript" src="JS/particles.js"></script>
     <script type="text/javascript" src="JS/app.js"></script>
+    
+
+
     <section class="History">
-        <div class="row">
+        <div class="row" >
             <div class="column-col" data-aos="fade-right">
             <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Elizabeth_Street_Melbourne_1900.jpg">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, vel!</p>
@@ -128,7 +134,7 @@
     const map = new mapboxgl.Map({
     style: 'mapbox://styles/sdighe/ckuv4uqovn09u17prh84g8r4h',
     center: [144.9631, -37.8136],
-    zoom: 15.5,
+    zoom: 16,
     pitch: 45,
     bearing: -17.6,
     container: 'map',
@@ -186,11 +192,13 @@
     </script>   
 </section>
 
-<!--Population Charts-->
+<!--Population Chart-->
+<div class="rellax" style="position: absolute;"><h1>5.2 Mil</h1></div>
+
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <section class="History">
   <div class="">
-    <div class="spacer">
+    <div class="spacer" data-aos="fade-in">
       <h1>Population</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, 
         vel! Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -210,85 +218,21 @@
   </div>
     <script>
       const data = [
-      {
-          date: 1950,
-          Population: 1332000,
-        },
-        {
-          date: 1955 ,
-          Population: 1574000,
-          Annual  : 3.28
-        },
-        {
-          date: 1960 ,
-          Population: 1851000,
-          Annual  : 3.29
-        },
-        {
-          date: 1965 ,
-          Population: 2068000,
-          Annual  : 1.97
-        },
-        
-        {
-          date: 1970 ,
-          Population: 2499000,
-          Annual  : 4.34
-        },
-        
-        {
-          date: 1975 ,
-          Population: 2732000,
-          Annual  : 1.19
-        },
-        
-        {
-          date: 1980 ,
-          Population: 2839000,
-          Annual  : 0.67
-        },
-        
-        {
-          date: 1985 ,
-          Population: 2969000,
-          Annual  : 0.95
-        },
-        {
-          date: 1990 ,
-          Population: 3154000,
-          Annual  : 1.28
-        },
-        {
-          date: 1995 ,
-          Population: 3283000,
-          Annual  : 0.71
-        },
-        {
-          date: 2000 ,
-          Population: 3361000,
-          Annual  : 0.42
-        },
-        {
-          date: 2005 ,
-          Population: 3573000,
-          Annual  : 1.45
-        },
-        {
-          date: 2010 ,
-          Population: 3932000,
-          Annual  : 2.05
-        },
-        {
-          date: 2015 ,
-          Population: 4430000,
-          Annual  : 2.5
-        },
-        {
-          date: 2020 ,
-          Population: 4968000,
-          Annual  : 2.01
-        },
-      
+      {date: 1950,Population: 1332000,},
+      {date: 1955,Population: 1574000,Annual:3.28},
+      {date: 1960,Population: 1851000,Annual: 3.29},
+      {date: 1965,Population: 2068000,Annual: 1.97},
+      {date: 1970,Population: 2499000,Annual: 4.34},
+      {date: 1975,Population: 2732000,Annual: 1.19},
+      {date: 1980,Population: 2839000,Annual: 0.67},
+      {date: 1985,Population: 2969000,Annual: 0.95},
+      {date: 1990,Population: 3154000,Annual: 1.28},
+      {date: 1995,Population: 3283000,Annual: 0.71},
+      {date: 2000,Population: 3361000,Annual: 0.42},
+      {date: 2005,Population: 3573000,Annual: 1.45},
+      {date: 2010,Population: 3932000,Annual: 2.05},
+      {date: 2015,Population: 4430000,Annual: 2.5},
+      {date: 2020,Population: 4968000,Annual: 2.01},     
       ];
       // Create SVG and padding for the chart
       const svg = d3
@@ -336,7 +280,7 @@
         const transitionPath = d3
         .transition()
         .ease(d3.easeSin)
-        .duration(6000)
+        .duration(5000)
         .on("end", loopPath);
       
         path
@@ -400,74 +344,89 @@
             vel! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>  
   </div>
-  <div class="row">
-    <div id="chart1">hello</div> 
-  </div> 
-  <script>
-    var chart1 = c3.generate({
-    bindto: '#chart1',
-      data: {
-        order:'desc',
-        columns: [
-          ['1 Bedroom',200.0,210.0,240.0,240.0,250.0,260.0,270.0,280.0,300.0,345.0,350.0,370.0,375.0,370.0,370.0,380.0,370.0,390.0,415.0],
-          ['2 Bedroom',298.0,310.0,320.0,330.0,340.0,340.0,350.0,370.0,420.0,458.0,480.0,490.0,500.0,500.0,500.0,500.0,520.0,530.0,570.0],
-          ['3 Bedroom',380.0,418.0,413.0,450.0,450.0,460.0,478.0,510.0,580.0,590.0,650.0,660.0,660.0,680.0,705.0,691.0,700.0,730.0,770.0],
-          ['4 Bedroom',380.0,350.0,430.0,398.0,420.0,440.0,380.0,550.0,645.0,670.0,750.0,770.0,800.0,815.0,800.0,845.0,890.0,880.0,860.0],
-        ],
-        type: 'line',
-      },
-      interpolation: {
-        type: "basis"
-      },
-      axis: {
-        x: {
-          type: 'category',
-          categories: ['1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017'],
-          label: { // ADD
-            text: 'Year',
-            position: 'outer-middle'
-          }
-        },
-        y:{
-          show: true,
-          label: { // ADD
-            text: 'Rent ($/week)',
-            position: 'outer-middle'
+  <section class="History">
+    <div class="row">
+        <div class="column-col" data-aos="fade-in">
+          <h1>Residential and Housing</h1>
+          <h3 style="color:blue; font-size:2em">Melbourne is currently home to over 1.8 million households</h3>
+          <p> 
+          It is estimated to grow to over 2.4 million households by 2036.
+          </p>
+        </div>
+
+        <div class="column-col">
+          <div><img src="Assets/housing.jpg"></div>
+        </div>
+    </div>
+    <div class="row">
+    <div id="chart1" class="spacer">hello</div> </div> 
+    <script>
+        var chart1 = c3.generate({
+        bindto: '#chart1',
+          data: {
+            order:'desc',
+            columns: [
+              ['1 Bedroom',200.0,210.0,240.0,240.0,250.0,260.0,270.0,280.0,300.0,345.0,350.0,370.0,375.0,370.0,370.0,380.0,370.0,390.0,415.0],
+              ['2 Bedroom',298.0,310.0,320.0,330.0,340.0,340.0,350.0,370.0,420.0,458.0,480.0,490.0,500.0,500.0,500.0,500.0,520.0,530.0,570.0],
+              ['3 Bedroom',380.0,418.0,413.0,450.0,450.0,460.0,478.0,510.0,580.0,590.0,650.0,660.0,660.0,680.0,705.0,691.0,700.0,730.0,770.0],
+              ['4 Bedroom',380.0,350.0,430.0,398.0,420.0,440.0,380.0,550.0,645.0,670.0,750.0,770.0,800.0,815.0,800.0,845.0,890.0,880.0,860.0],
+            ],
+            type: 'line',
           },
-        }, 
-      },
-      tooltip: {
-        grouped: false,
-        contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-          var $$ = this, config = $$.config, CLASS = $$.CLASS,
-            titleFormat = config.tooltip_format_title || defaultTitleFormat,
-            nameFormat = config.tooltip_format_name || function (name) { return name; },
-            valueFormat = config.tooltip_format_value || defaultValueFormat,
-            text, i, title, value, name, bgcolor;
-            for (i = 0; i < d.length; i++){
-              
-              if (! text) {
-                title = titleFormat(d[i].x,d[i].index);
-                text = "<table class='" + CLASS.tooltip + "'>" + (title || title === 0 ? "<tr><th colspan='2'>" + title + "</th></tr>" : "");
-            }
-            name = nameFormat(d[i].name);
-            value = valueFormat(d[i].value, d[i].ratio, d[i].id, d[i].index);
-            bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
-            text += "<tr class='" + CLASS.tooltipName + "-" + d[i].id + "'>";
-            text += "<td class='name'><span style='background-color:" + bgcolor + "'></span>" + name + "</td>";
-            text += "<td class='value'>$ " + value + "</td>";
-            text += "</tr>";
-            }
-        return text+"</table>";
-        },
-      },
-      color: {
-        pattern: ['#1f77b4', '#ff7f0e', '#ffbb78', '#2ca02c', '#d62728', '#ff9896', '#9467bd', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5']
-      },
-      tooltip: {
-      grouped: false,
-    }
-  });
+          interpolation: {
+            type: "basis"
+          },
+          axis: {
+            x: {
+              type: 'category',
+              categories: ['1999','2000','2001','2002','2003','2004','2005',
+                           '2006','2007','2008','2009','2010','2011','2012',
+                           '2013','2014','2015','2016','2017'],
+              label: { // ADD
+                text: 'Year',
+                position: 'outer-middle'
+              }
+            },
+            y:{
+              show: true,
+              label: { // ADD
+                text: 'Rent ($/week)',
+                position: 'outer-middle'
+              },
+            }, 
+          },
+          tooltip: {
+            grouped: false,
+            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+              var $$ = this, config = $$.config, CLASS = $$.CLASS,
+                titleFormat = config.tooltip_format_title || defaultTitleFormat,
+                nameFormat = config.tooltip_format_name || function (name) { return name; },
+                valueFormat = config.tooltip_format_value || defaultValueFormat,
+                text, i, title, value, name, bgcolor;
+                for (i = 0; i < d.length; i++){
+                  
+                  if (! text) {
+                    title = titleFormat(d[i].x,d[i].index);
+                    text = "<table class='" + CLASS.tooltip + "'>" + (title || title === 0 ? "<tr><th colspan='2'>" + title + "</th></tr>" : "");
+                }
+                name = nameFormat(d[i].name);
+                value = valueFormat(d[i].value, d[i].ratio, d[i].id, d[i].index);
+                bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
+                text += "<tr class='" + CLASS.tooltipName + "-" + d[i].id + "'>";
+                text += "<td class='name'><span style='background-color:" + bgcolor + "'></span>" + name + "</td>";
+                text += "<td class='value'>$ " + value + "</td>";
+                text += "</tr>";
+                }
+            return text+"</table>";
+            },
+          },
+          color: {
+            pattern: ['#1f77b4', '#ff7f0e', '#ffbb78', '#2ca02c', '#d62728', '#ff9896', '#9467bd', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5']
+          },
+          tooltip: {
+          grouped: false,
+        }
+      });
   </script> 
 <!--Urban Infrastructure and Planning BuildingsCategoricalData/BuildingHistoryData/WorkMovemment/OpenSpaces-->
 <!--Housing Rent/HousePrices and spread-->
@@ -476,17 +435,31 @@
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css' rel='stylesheet' />
 <section class="History">
     <div class="row">
-        <div class="column-col" data-aos="fade-in">
+        <div class="spacer" data-aos="fade-in">
         <h1>Transportion Network</h1>
         <h3>De-facto Capital</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, 
                 vel! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
-        <div class="column-col">
-        add link to transport here  
+        <div class="spacer">
+          <div class="item">
+            <a href="index2.html"><button class="btn">Explore</button></a>
+          </div>  
         </div>
     </div>
  
+    <section class="History">
+      <div class="row">
+          <div class="column-col" data-aos="fade-in">
+          <h1>Digital Infrastructure</h1>
+          <h3>De-facto Capital</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, 
+                  vel! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <div class="column-col">
+            </div>  
+          </div>
+      </div>
 <!--DigitalData(PartiallyAPartof)-->
 <!--Weather-->
 
@@ -502,7 +475,11 @@
       </div>
     </section>
 
-
+<script src="JS/rellax.js"></script>
+<script src="JS/rellax.min.js"></script>
+<script>
+  var rellax = new Rellax('.rellax')
+</script>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({
