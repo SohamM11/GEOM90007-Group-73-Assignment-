@@ -76,7 +76,7 @@ body{
     justify-content: space-evenly;
 }
 .column-col{
-    flex-basis: 50%;
+    flex-basis: 80%;
     background: white;
     border-radius: 10px;
     margin-bottom: 30px;
@@ -93,6 +93,12 @@ body{
     padding-left: 10px;
 }
 h3{
+    margin: 10px 0;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 10px;
+}
+h2{
     margin: 10px 0;
     font-weight: 600;
     text-align: left;
@@ -125,6 +131,7 @@ p{
 .col-col{
     flex-basis: 50%;
     background: white;
+    margin-left: 20px;
     border-radius: 10px;
     margin-bottom: 30px;
     position: relative;
