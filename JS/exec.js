@@ -140,19 +140,6 @@ map4.on('click', 'ptv-metro-tram-routes-line-axyn70', (e) => {
         "type":"geojson",
         "data": feature.toJSON()
     });
-    map4.addLayer({
-        "id": "selectedRoad",
-        "type": "line",
-        "source": "selectedRoad",
-        "layout": {
-            "line-join": "round",
-            "line-cap": "round"
-        },
-        "paint": {
-            "line-color": "red",
-            "line-width": 4
-        }
-    });
     });
 map4.on('mouseenter', 'ptv-metro-tram-routes-line-axyn70', (e) => {
     map4.getCanvas().style.cursor = 'pointer';
