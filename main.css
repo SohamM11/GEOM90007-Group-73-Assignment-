@@ -1,0 +1,29 @@
+svg {
+    overflow: visible;
+  }
+#id_genderPie{
+    min-height: 37rem;
+}
+.col-md-6{
+    min-height: 37rem;
+  }
+
+#id_incomeGroup{
+    height: 700px;
+}
+.info{
+  text-align: left;
+  padding: 16px;
+  background-color: lightgray;
+  border: 1px solid black;
+  width: auto;
+  opacity: 0;
+  color: black;
+  position: absolute;
+  display: block;
+}
+#title {
+  font-weight: bold;
+  text-align: center;
+  display: block;
+}
