@@ -10,7 +10,7 @@
 </head>
 <body>
     <section class="showcase">
-        <div class="text rellax" data-rellax-speed="-10">
+        <div class="text rellax" data-rellax-speed="-2">
             <h1>A study on the <br>
                 Urban Metropolitan <br> Area of <br> Melbourne</h1>
                 <h6 style="color: #fff; font-style:Helvetica; font-size:12px">Dive into the 3D space</h6>
@@ -226,7 +226,7 @@
       const yScale = d3
       .scaleLinear()
       .range([height, 0])
-      .domain([000000, d3.max(data, dataPoint => dataPoint.Population)]);
+      .domain([000000, d3.max(data, dataPoint => dataPoint.Population)+500000]);
       const xScale = d3
       .scaleLinear()
       .range([0, width])
@@ -351,8 +351,9 @@
       </p>
       </div>
       <div class="spacer">
-        <h3></h3>
-        <p></p>
+        <div class="item">
+          <a href="index3.html"><button class="btn">Explore</button></a>
+        </div> 
       </div>  
   </div>
 </section>  

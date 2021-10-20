@@ -149,3 +149,7 @@ map4.on('mouseleave', 'ptv-metro-tram-routes-line-axyn70', () => {
     });
 map4.addControl(new mapboxgl.NavigationControl());
 map4.addControl(new mapboxgl.ScaleControl({position: 'bottom-right'}));
+
+function goBack() {
+    window.history.back();
+}

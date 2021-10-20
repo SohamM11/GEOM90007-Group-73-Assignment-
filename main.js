@@ -483,3 +483,7 @@ function updateIncomeBarChart(d) {
                         .text(function (k) { return k.count; });
 }
 updateIncomeBarChart(pieProcessing("City of Melbourne")[0]);
+
+function goBack() {
+    window.history.back();
+}
