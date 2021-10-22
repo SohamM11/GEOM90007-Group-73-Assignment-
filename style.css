@@ -309,3 +309,14 @@ p{
      flex-direction: column;
    }
 }
+.History button{
+    border: 0;
+    font-family: Helvetica Bold;
+    font-size: 18px;
+    line-height: 1;
+    padding: 15px 20px;
+    background: #0081D5;
+    color: #fff;
+    cursor: pointer;
+    justify-content: space-between;
+}
