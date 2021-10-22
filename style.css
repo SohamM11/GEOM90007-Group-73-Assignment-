@@ -179,7 +179,7 @@ p{
     }
 }
 .geod{
-    overflow: hidden;
+    height: 70vh;
 }
 .geod h1{
     font-size: 36px;
