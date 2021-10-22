@@ -54,14 +54,14 @@ body{
         color: darkgray;
     }
 
-.History{
+.container{
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
-.History p{
+.container p{
     font-size: 14px;
     font-family: Helvetica;
     font-weight: 300;
@@ -82,6 +82,7 @@ body{
     position: relative;
     overflow: hidden;
     transition: 0.5s;
+    margin: 10px;
 }
 .column-col h1{
     font-size: 36px;
@@ -124,6 +125,7 @@ p{
 }
 
 .row2{
+    margin-top: 5%;
     display: flex;
     justify-content: space-evenly;
 }
@@ -175,6 +177,9 @@ p{
     .row2{
         flex-direction: column;
     }
+}
+.geod{
+    overflow: hidden;
 }
 .geod h1{
     font-size: 36px;
@@ -308,14 +313,7 @@ p{
      flex-direction: column;
    }
 }
-.History button{
-    border: 0;
-    font-family: Helvetica Bold;
-    font-size: 18px;
-    line-height: 1;
-    padding: 15px 20px;
-    background: #0081D5;
-    color: #fff;
-    cursor: pointer;
-    justify-content: space-between;
+.mapper{
+    margin-left: auto;
+    margin-right: auto;
 }
