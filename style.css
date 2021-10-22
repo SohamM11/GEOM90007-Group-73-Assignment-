@@ -20,11 +20,10 @@ body{
     z-index: -500;
 }
 .showcase{
-    position: top;
         right: 0;
         padding-top: 200px;
         width: 100%;
-        min-height: 100vh;
+        min-height: 50vh;
         padding: 50px;
         display: flex;
         justify-content: space-between;
@@ -57,9 +56,9 @@ body{
 
 .History{
     width: 80%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    padding-top: 50px;
 }
 
 .History p{

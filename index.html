@@ -26,6 +26,73 @@
 </head>
 <title>City of Melbourne Group 73</title>
 <body>
+   <!---Geographic Data 3D Terrain visualisation-->
+   <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+   <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+   <section class="geod">
+     <div id="map" style="width: 99%; height:50vh;"></div>
+     <script>
+       mapboxgl.accessToken = 'pk.eyJ1Ijoic2RpZ2hlIiwiYSI6ImNrdDN3OTdpajB5Y2Yyb3BnOTM1bG9xNnAifQ._3qrPrtiR2sRnuaGWG6tZA';
+       const map = new mapboxgl.Map({
+         style: 'mapbox://styles/sdighe/ckuv4uqovn09u17prh84g8r4h',
+         center: [144.9610, -37.7983],
+         zoom: 16,
+         pitch: 45,
+         bearing: -17.6,
+         container: 'map',
+         antialias: true
+       });
+ 
+       map.on('load', () => {
+         // Insert the layer beneath any symbol layer.
+         const layers = map.getStyle().layers;
+         const labelLayerId = layers.find(
+           (layer) => layer.type === 'symbol' && layer.layout['text-field']
+         ).id;
+ 
+         // The 'building' layer in the Mapbox Streets
+         // vector tileset contains building height data
+         // from OpenStreetMap.
+         map.addLayer(
+           {
+             'id': 'add-3d-buildings',
+             'source': 'composite',
+             'source-layer': 'building',
+             'filter': ['==', 'extrude', 'true'],
+             'type': 'fill-extrusion',
+             'minzoom': 15,
+             'paint': {
+               'fill-extrusion-color': '#aaa',
+ 
+               // Use an 'interpolate' expression to
+               // add a smooth transition effect to
+               // the buildings as the user zooms in.
+               'fill-extrusion-height': [
+                 'interpolate',
+                 ['linear'],
+                 ['zoom'],
+                 15,
+                 0,
+                 15.05,
+                 ['get', 'height']
+               ],
+               'fill-extrusion-base': [
+                 'interpolate',
+                 ['linear'],
+                 ['zoom'],
+                 15,
+                 0,
+                 15.05,
+                 ['get', 'min_height']
+               ],
+               'fill-extrusion-opacity': 0.9,
+             }
+           },
+           labelLayerId
+         );
+       });
+     </script>
+
   <section class="showcase">
     <div class="text rellax" data-rellax-speed="-2">
       <h1 style="font-size: 2em; font-family: Helvetica Bold">A study on the <br>
@@ -35,10 +102,10 @@
       <h4>A data initiative</h4>
     </div>
   </section>
-  <div class="rellax" data-rellax-speed="-3" style="position: absolute; padding: 50px; left:2p00x; 
-    font-family: Helvetica Bold; font-size:30px; color:#40c095">
+  <div class="rellax" data-rellax-speed="-3" style="position: relative; padding: 20px 0px 0px 50px; 
+    font-family: Helvetica Bold; font-size:30px; color:#40c095; z-index:-400">
     To understand, account and realise the city of Melbourne</div>
-  <div id="particles-js"></div>
+  <div id="particles-js" style="height: 25vh; position: relative;"></div>
   <script type="text/javascript" src="JS/particles.js"></script>
   <script type="text/javascript" src="JS/app.js"></script>
 
@@ -130,73 +197,8 @@
     </div>
 
   </section>
-  <!---Geographic Data 3D Terrain visualisation-->
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
-  <section class="geod">
-    <div id="map" style="width: 100%; height:100vh;"></div>
-    <script>
-      mapboxgl.accessToken = 'pk.eyJ1Ijoic2RpZ2hlIiwiYSI6ImNrdDN3OTdpajB5Y2Yyb3BnOTM1bG9xNnAifQ._3qrPrtiR2sRnuaGWG6tZA';
-      const map = new mapboxgl.Map({
-        style: 'mapbox://styles/sdighe/ckuv4uqovn09u17prh84g8r4h',
-        center: [144.9610, -37.7983],
-        zoom: 16,
-        pitch: 45,
-        bearing: -17.6,
-        container: 'map',
-        antialias: true
-      });
+ 
 
-      map.on('load', () => {
-        // Insert the layer beneath any symbol layer.
-        const layers = map.getStyle().layers;
-        const labelLayerId = layers.find(
-          (layer) => layer.type === 'symbol' && layer.layout['text-field']
-        ).id;
-
-        // The 'building' layer in the Mapbox Streets
-        // vector tileset contains building height data
-        // from OpenStreetMap.
-        map.addLayer(
-          {
-            'id': 'add-3d-buildings',
-            'source': 'composite',
-            'source-layer': 'building',
-            'filter': ['==', 'extrude', 'true'],
-            'type': 'fill-extrusion',
-            'minzoom': 15,
-            'paint': {
-              'fill-extrusion-color': '#aaa',
-
-              // Use an 'interpolate' expression to
-              // add a smooth transition effect to
-              // the buildings as the user zooms in.
-              'fill-extrusion-height': [
-                'interpolate',
-                ['linear'],
-                ['zoom'],
-                15,
-                0,
-                15.05,
-                ['get', 'height']
-              ],
-              'fill-extrusion-base': [
-                'interpolate',
-                ['linear'],
-                ['zoom'],
-                15,
-                0,
-                15.05,
-                ['get', 'min_height']
-              ],
-              'fill-extrusion-opacity': 0.9,
-            }
-          },
-          labelLayerId
-        );
-      });
-    </script>
-  </section>
 
   <!--Population Chart src="https://d3js.org/d3.v5.min.js"-->
 
@@ -726,7 +728,7 @@
       </script>
 
       <script>AOS.init({
-          offset: 120,
+          offset: 100,
           duration: 3000,
         });
       </script>
