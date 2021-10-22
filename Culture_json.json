@@ -1,0 +1,225 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+          {
+              "type": "Feature",
+              "properties": {
+                  "Name": "ST ALI",
+                  "BusType": "Cafe"
+              },
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [144.96036578781218,-37.83117082525918]
+              }
+          },
+          {
+              "type": "Feature",
+              "properties": {
+                  "Name": "SEVEN SEEDS",
+                  "BusType": "Cafe"
+              },
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [144.95889569012007, -37.80272785226153]
+              }
+          },
+          {
+              "type": "Feature",
+              "properties": {
+                  "Name": "MARKET LANE",
+                  "BusType": "Cafe"
+              },
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [144.96955052520406, -37.812318036475084]
+              }
+          },
+          {
+              "type": "Feature",
+              "properties": {
+                  "Name": "WIDE OPEN ROAD",
+                  "BusType": "Cafe"
+              },
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [144.9612254220058, -37.77607569457036]
+              }
+          },
+          {
+              "type": "Feature",
+              "properties": {
+                  "Name": "ACTUION ROOMS",
+                  "BusType": "Cafe"
+              },
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [144.94949902475426, -37.802365624511445]
+              }
+          },
+          {
+              "type": "Feature",
+              "properties": {
+                  "Name": "CODE BLACK",
+                  "BusType": "Cafe"
+              },
+              "geometry": {
+                  "type": "Point",
+                  "coordinates": [144.9537744527839,-37.804042868876074]
+              }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+                "Name": "INDUSTRY BEANS",
+                "BusType": "Cafe"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.97814979780495, -37.7947779937662]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "DUKES COFFEE ROASTERS",
+                "BusType": "Cafe"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.96641641628528, -37.81609085295688]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "PADRE COFFE",
+                "BusType": "Cafe"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.97430465049194, -37.762466247582374]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "PROUD MARY",
+                "BusType": "Cafe"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.98519315283968, -37.802177192458984]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Hosier Lane",
+                "BusType": "ART"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.96914813478904, -37.816317393483054]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Centre Place",
+                "BusType": "ART"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.96541610595827, -37.816170393170346]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "AC/CD Lane",
+                "BusType": "ART"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.97091610595774, -37.81543339064083]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Keith Haring Mural",
+                "BusType": "ART"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.98686476741975, -37.79916795277811]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Caledonian Lane",
+                "BusType": "ART"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.96460699541836, -37.812217290976186]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Croft Alley",
+                "BusType": "ART"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.96905345364613, -37.811521207253534]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Duckboard Place",
+                "BusType": "ART"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.9714001515821, -37.81533344311628]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Rankins Lane",
+                "BusType": "ART"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.96239412352094, -37.81387303463077]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Everfresh Fitzroy Mural",
+                "BusType": "ART"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.97947948122828, -37.798160496796086]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Name": "Aretha Brown Fitzroy Mural",
+                "BusType": "ART"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [144.98685403909425, -37.799184908030696]
+            }
+        }
+    ]
+  }

@@ -1,502 +1,735 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css' rel='stylesheet' />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <!--Leaflet JS-->
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
     <link rel="stylesheet" href="style.css">
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css' rel='stylesheet'/>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
+    <style>
+        #mapid { height: 700px; width: 700px; }
+        button{
+          size: 100px;
+        }
+    </style>
 </head>
+<title>City of Melbourne Group 73</title>
 <body>
-    <section class="showcase">
-        <div class="text rellax" data-rellax-speed="-2">
-            <h1>A study on the <br>
-                Urban Metropolitan <br> Area of <br> Melbourne</h1>
-                <h6 style="color: #fff; font-style:Helvetica; font-size:12px">Dive into the 3D space</h6>
-                <p>37.7983° S, 144.9610° E</p>
-                <h6>A data initiative</h6>
-        </div>
-    </section>
-    <div class="rellax" data-rellax-speed="-3" style="position: absolute; padding: 50px; left:2p00x; 
+  <section class="showcase">
+    <div class="text rellax" data-rellax-speed="-2">
+      <h1 style="font-size: 2em; font-family: Helvetica Bold">A study on the <br>
+        Urban Metropolitan <br> Area of <br> Melbourne</h1>
+      <h3 style="color: #fff; font-style:Helvetica;">Dive into the 3D space</h3>
+      <p>37.7983° S, 144.9610° E</p>
+      <h4>A data initiative</h4>
+    </div>
+  </section>
+  <div class="rellax" data-rellax-speed="-3" style="position: absolute; padding: 50px; left:2p00x; 
     font-family: Helvetica Bold; font-size:30px; color:#40c095">
     To understand, account and realise the city of Melbourne</div>
-    <div id="particles-js"></div>
-    <script type="text/javascript" src="JS/particles.js"></script>
-    <script type="text/javascript" src="JS/app.js"></script>
-    
+  <div id="particles-js"></div>
+  <script type="text/javascript" src="JS/particles.js"></script>
+  <script type="text/javascript" src="JS/app.js"></script>
 
 
-    <section class="History">
-        <div class="row" >
-            <div class="column-col" data-aos="fade-in">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Batman_signs_treaty_artist_impression.jpg/640px-Batman_signs_treaty_artist_impression.jpg">
-            <p>John Batman's Treaty with a group of Wurundjeri Elders</p>
-            </div>
 
-            <div class="column-col" data-aos="fade-left">
-                <h1>History</h1>
-            <h3>Even before we begin</h3>
-            <p style="font-size:16px;">The City of Melbourne is located on the 
-              traditional land of the Kulin Nation and we acknowledge our respects 
-              to the elders. This special place is now known by its name of 'Melbourne'. 
-              The main reason for the settlement is the Yarra River. Melbourne was founded 
-              on the Yarra River in 1835 after an abortive bid in 1803 to establish a settlement 
-              inside the Port Phillip Bay heads near Sorrento. John Batman had set aside part of 
-              the land he had acquired from the Aboriginals for a township. 
-              Bourke visited the town in March 1837, 
-              and though Bourke was not impressed by the way Batman had 'bought' 
-              the land from the indigenous people, agreed the site near the Yarra River 
-              was the best place for a settlement.
-              </p>
-            </div>
-        </div>   
-            <div class="row2">
-    
-                <div class="col-col" data-aos="fade-right">
-                <h2>1850 Gold Rush</h2>
-                <p style="font-size:16px;">A party formed by Mr. Louis John Michel, Mr. William Haberlin, James Furnival, 
-                  James Melville, James Headon, and B. Groenig, discovered the existence of gold 
-                  in the quartz rocks of the Yarra ranges, at Andersons Creek, near Warrandyte, 
-                  in the latter part of June, and showed it on the spot to Dr. Webb Richmond, 
-                  on behalf of the Gold Discovery Committee on 5 July.<br><br>
-                  The population of Melbourne grew swiftly as the gold fever took hold. The total number of people in Victoria also rose. By 1851 it was 75,000 people. 
-                  Ten years later this rose to over 500,000.(non-indegenous people) </p>
-                </div>
+  <section class="History">
+    <div class="row">
+      <div class="column-col" data-aos="fade-in">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Batman_signs_treaty_artist_impression.jpg/640px-Batman_signs_treaty_artist_impression.jpg">
+        <p>John Batman's Treaty with a group of Wurundjeri Elders</p>
+      </div>
 
-                <div class="col-col" data-aos="fade-in">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Canvas_town_south_melbourne_victoria_1850s.jpg">
-                <p>Canvas Town, South Melbourne in the 1850s</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="column-col" data-aos="fade-in">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Opening_of_the_first_parliament.jpg/640px-Opening_of_the_first_parliament.jpg">
-                <p>9 May 1901, Opening of the first Parliament of Australia <br> (painted by Tom Roberts)</p>
-                </div>
-    
-                <div class="column-col" data-aos="fade-left">
-                    <h2>1900s</h2>
-                <h3>De-facto Capital</h3>
-                <p style="font-size:16px;">Melbourne served as the capital from 190-1927.
-                  The Commonwealth of Australia came into being on 1 January 1901 
-                  with the federation of the six Australian colonies. 
-                  The inaugural election took place on 29 and 30 March and the first 
-                  Australian Parliament was opened on 9 May 1901 in Melbourne by Prince George, 
-                  Duke of Cornwall and York, later King George V.</p>
-                </div>
-            </div>
-            <div class="row2">
-    
-              <div class="col-col" data-aos="fade-right">
-              <h3>Late 20th Century</h3>
-              <p  style="font-size:16px;">In the immediate years after World War II, Melbourne expanded rapidly, its growth boosted by post-war immigration to Australia,
-                primarily from Southern Europe and the Mediterranean. The "Paris End" of Collins Street began Melbourne's boutique 
-                shopping and open air cafe cultures, the city centre was seen by many as stale—the dreary domain of office workers. Melbourne experienced an economic downturn between 1989 and 1992, 
-                following the collapse of several local financial institutions.<br><br>
-                Since the mid-1990s, Melbourne has maintained significant population and employment growth. There has been substantial
-                international investment in the city's industries and property market.
-              </p>
-              </div>
+      <div class="column-col" data-aos="fade-left">
+        <h1>History</h1>
+        <h3>Even before we begin</h3>
+        <p style="font-size:16px;">The City of Melbourne is located on the
+          traditional land of the Kulin Nation and we acknowledge our respects
+          to the elders. This special place is now known by its name of 'Melbourne'.
+          The main reason for the settlement is the Yarra River. Melbourne was founded
+          on the Yarra River in 1835 after an abortive bid in 1803 to establish a settlement
+          inside the Port Phillip Bay heads near Sorrento. John Batman had set aside part of
+          the land he had acquired from the Aboriginals for a township.
+          Bourke visited the town in March 1837,
+          and though Bourke was not impressed by the way Batman had 'bought'
+          the land from the indigenous people, agreed the site near the Yarra River
+          was the best place for a settlement.
+        </p>
+      </div>
+    </div>
+    <div class="row2">
 
-              <div class="col-col" data-aos="fade-in">
-              <img src="https://i.pinimg.com/originals/5f/2a/2f/5f2a2f609f256da12478451c5711e2ea.jpg">
-              <p>Swanston Street 1980s</p>
-              </div>
-          </div>
-             
-    </section>
-<!---Geographic Data 3D Terrain visualisation-->
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet'/>
-<section class="geod">
+      <div class="col-col" data-aos="fade-right">
+        <h2>1850 Gold Rush</h2>
+        <p style="font-size:16px;">A party formed by Mr. Louis John Michel, Mr. William Haberlin, James Furnival,
+          James Melville, James Headon, and B. Groenig, discovered the existence of gold
+          in the quartz rocks of the Yarra ranges, at Andersons Creek, near Warrandyte,
+          in the latter part of June, and showed it on the spot to Dr. Webb Richmond,
+          on behalf of the Gold Discovery Committee on 5 July.<br><br>
+          The population of Melbourne grew swiftly as the gold fever took hold. The total number of people in Victoria
+          also rose. By 1851 it was 75,000 people.
+          Ten years later this rose to over 500,000.(non-indegenous people) </p>
+      </div>
+
+      <div class="col-col" data-aos="fade-in">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Canvas_town_south_melbourne_victoria_1850s.jpg">
+        <p>Canvas Town, South Melbourne in the 1850s</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-col" data-aos="fade-in">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Opening_of_the_first_parliament.jpg/640px-Opening_of_the_first_parliament.jpg">
+        <p>9 May 1901, Opening of the first Parliament of Australia <br> (painted by Tom Roberts)</p>
+      </div>
+
+      <div class="column-col" data-aos="fade-left">
+        <h2>1900s</h2>
+        <h3>De-facto Capital</h3>
+        <p style="font-size:16px;">Melbourne served as the capital from 190-1927.
+          The Commonwealth of Australia came into being on 1 January 1901
+          with the federation of the six Australian colonies.
+          The inaugural election took place on 29 and 30 March and the first
+          Australian Parliament was opened on 9 May 1901 in Melbourne by Prince George,
+          Duke of Cornwall and York, later King George V.</p>
+      </div>
+    </div>
+    <div class="row2">
+
+      <div class="col-col" data-aos="fade-right">
+        <h3>Late 20th Century</h3>
+        <p style="font-size:16px;">In the immediate years after World War II, Melbourne expanded rapidly, its growth
+          boosted by post-war immigration to Australia,
+          primarily from Southern Europe and the Mediterranean. The "Paris End" of Collins Street began Melbourne's
+          boutique
+          shopping and open air cafe cultures, the city centre was seen by many as stale—the dreary domain of office
+          workers. Melbourne experienced an economic downturn between 1989 and 1992,
+          following the collapse of several local financial institutions.<br><br>
+          Since the mid-1990s, Melbourne has maintained significant population and employment growth. There has been
+          substantial
+          international investment in the city's industries and property market.
+        </p>
+      </div>
+
+      <div class="col-col" data-aos="fade-in">
+        <img src="https://i.pinimg.com/originals/5f/2a/2f/5f2a2f609f256da12478451c5711e2ea.jpg">
+        <p>Swanston Street 1980s</p>
+      </div>
+    </div>
+
+  </section>
+  <!---Geographic Data 3D Terrain visualisation-->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+  <section class="geod">
     <div id="map" style="width: 100%; height:100vh;"></div>
     <script>
-    mapboxgl.accessToken = 'pk.eyJ1Ijoic2RpZ2hlIiwiYSI6ImNrdDN3OTdpajB5Y2Yyb3BnOTM1bG9xNnAifQ._3qrPrtiR2sRnuaGWG6tZA';
-    const map = new mapboxgl.Map({
-    style: 'mapbox://styles/sdighe/ckuv4uqovn09u17prh84g8r4h',
-    center: [144.9610, -37.7983],
-    zoom: 16,
-    pitch: 45,
-    bearing: -17.6,
-    container: 'map',
-    antialias: true
-    });
-     
-    map.on('load', () => {
-    // Insert the layer beneath any symbol layer.
-    const layers = map.getStyle().layers;
-    const labelLayerId = layers.find(
-    (layer) => layer.type === 'symbol' && layer.layout['text-field']
-    ).id;
-     
-    // The 'building' layer in the Mapbox Streets
-    // vector tileset contains building height data
-    // from OpenStreetMap.
-    map.addLayer(
-    {
-    'id': 'add-3d-buildings',
-    'source': 'composite',
-    'source-layer': 'building',
-    'filter': ['==', 'extrude', 'true'],
-    'type': 'fill-extrusion',
-    'minzoom': 15,
-    'paint': {
-    'fill-extrusion-color': '#aaa',
-     
-    // Use an 'interpolate' expression to
-    // add a smooth transition effect to
-    // the buildings as the user zooms in.
-    'fill-extrusion-height': [
-    'interpolate',
-    ['linear'],
-    ['zoom'],
-    15,
-    0,
-    15.05,
-    ['get', 'height']
-    ],
-    'fill-extrusion-base': [
-    'interpolate',
-    ['linear'],
-    ['zoom'],
-    15,
-    0,
-    15.05,
-    ['get', 'min_height']
-    ],
-    'fill-extrusion-opacity': 0.9,
-    }
-    },
-    labelLayerId
-    );
-    });
-    </script>   
-</section>
+      mapboxgl.accessToken = 'pk.eyJ1Ijoic2RpZ2hlIiwiYSI6ImNrdDN3OTdpajB5Y2Yyb3BnOTM1bG9xNnAifQ._3qrPrtiR2sRnuaGWG6tZA';
+      const map = new mapboxgl.Map({
+        style: 'mapbox://styles/sdighe/ckuv4uqovn09u17prh84g8r4h',
+        center: [144.9610, -37.7983],
+        zoom: 16,
+        pitch: 45,
+        bearing: -17.6,
+        container: 'map',
+        antialias: true
+      });
 
-<!--Population Chart src="https://d3js.org/d3.v5.min.js"-->
+      map.on('load', () => {
+        // Insert the layer beneath any symbol layer.
+        const layers = map.getStyle().layers;
+        const labelLayerId = layers.find(
+          (layer) => layer.type === 'symbol' && layer.layout['text-field']
+        ).id;
 
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<section class="History">
-    <div class="column-col" data-aos="fade-in" >
+        // The 'building' layer in the Mapbox Streets
+        // vector tileset contains building height data
+        // from OpenStreetMap.
+        map.addLayer(
+          {
+            'id': 'add-3d-buildings',
+            'source': 'composite',
+            'source-layer': 'building',
+            'filter': ['==', 'extrude', 'true'],
+            'type': 'fill-extrusion',
+            'minzoom': 15,
+            'paint': {
+              'fill-extrusion-color': '#aaa',
+
+              // Use an 'interpolate' expression to
+              // add a smooth transition effect to
+              // the buildings as the user zooms in.
+              'fill-extrusion-height': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                15,
+                0,
+                15.05,
+                ['get', 'height']
+              ],
+              'fill-extrusion-base': [
+                'interpolate',
+                ['linear'],
+                ['zoom'],
+                15,
+                0,
+                15.05,
+                ['get', 'min_height']
+              ],
+              'fill-extrusion-opacity': 0.9,
+            }
+          },
+          labelLayerId
+        );
+      });
+    </script>
+  </section>
+
+  <!--Population Chart src="https://d3js.org/d3.v5.min.js"-->
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <section class="History">
+    <div class="column-col" data-aos="fade-in">
       <h1>Population</h1>
       <h2 id="" style="color: blue;">5.2 Million (2020)</h2>
       <p style="font-size: 16px;">As of 2020 Melbourne contributes to ~19% of the Australian Population.
-        Looking back last eight years of Melbourne’s population, the grow rate is very consistent 
-        ranging from 1.67% to 4.5%, adding around 70,000 to 280,000 people each year to 
+        Looking back last eight years of Melbourne’s population, the grow rate is very consistent
+        ranging from 1.67% to 4.5%, adding around 70,000 to 280,000 people each year to
         the overall population. As of 2013 38% of the population in Melbourne was born overseas.
       </p>
-      <h3 style="color: grey;">Looking at the past records</h3> 
+      <h3 style="color: grey;">Looking at the past records</h3>
     </div>
     <div class="spacer" id="Past"></div>
-  </div>
+    </div>
     <script>
       const data = [
-      {date: 1950,Population: 1332000,},
-      {date: 1955,Population: 1574000,Annual:3.28},
-      {date: 1960,Population: 1851000,Annual: 3.29},
-      {date: 1965,Population: 2068000,Annual: 1.97},
-      {date: 1970,Population: 2499000,Annual: 4.34},
-      {date: 1975,Population: 2732000,Annual: 1.19},
-      {date: 1980,Population: 2839000,Annual: 0.67},
-      {date: 1985,Population: 2969000,Annual: 0.95},
-      {date: 1990,Population: 3154000,Annual: 1.28},
-      {date: 1995,Population: 3283000,Annual: 0.71},
-      {date: 2000,Population: 3361000,Annual: 0.42},
-      {date: 2005,Population: 3573000,Annual: 1.45},
-      {date: 2010,Population: 3932000,Annual: 2.05},
-      {date: 2015,Population: 4430000,Annual: 2.5},
-      {date: 2020,Population: 4968000,Annual: 2.01},     
+        { date: 1950, Population: 1332000, },
+        { date: 1955, Population: 1574000, Annual: 3.28 },
+        { date: 1960, Population: 1851000, Annual: 3.29 },
+        { date: 1965, Population: 2068000, Annual: 1.97 },
+        { date: 1970, Population: 2499000, Annual: 4.34 },
+        { date: 1975, Population: 2732000, Annual: 1.19 },
+        { date: 1980, Population: 2839000, Annual: 0.67 },
+        { date: 1985, Population: 2969000, Annual: 0.95 },
+        { date: 1990, Population: 3154000, Annual: 1.28 },
+        { date: 1995, Population: 3283000, Annual: 0.71 },
+        { date: 2000, Population: 3361000, Annual: 0.42 },
+        { date: 2005, Population: 3573000, Annual: 1.45 },
+        { date: 2010, Population: 3932000, Annual: 2.05 },
+        { date: 2015, Population: 4430000, Annual: 2.5 },
+        { date: 2020, Population: 4968000, Annual: 2.01 },
       ];
       // Create SVG and padding for the chart
       const svg = d3
-      .select("#Past")
-      .append("svg")
-      .attr("height", 600)
-      .attr("width", 650);
-      const margin = { top: 0, bottom: 50, left: 100, right: 100};
+        .select("#Past")
+        .append("svg")
+        .attr("height", 600)
+        .attr("width", 650);
+      const margin = { top: 0, bottom: 50, left: 100, right: 100 };
       const chart = svg.append("g").attr("transform", `translate(${margin.left},0)`);
       const width = +svg.attr("width") - margin.left - margin.right;
       const height = +svg.attr("height") - margin.top - margin.bottom;
       const grp = chart
-      .append("g")
-      .attr("transform", `translate(-${margin.left},-${margin.top})`);
-      
+        .append("g")
+        .attr("transform", `translate(-${margin.left},-${margin.top})`);
+
       // Create scales
       const yScale = d3
-      .scaleLinear()
-      .range([height, 0])
-      .domain([000000, d3.max(data, dataPoint => dataPoint.Population)+500000]);
+        .scaleLinear()
+        .range([height, 0])
+        .domain([000000, d3.max(data, dataPoint => dataPoint.Population) + 500000]);
       const xScale = d3
-      .scaleLinear()
-      .range([0, width])
-      .domain(d3.extent(data, dataPoint => dataPoint.date));
-      
+        .scaleLinear()
+        .range([0, width])
+        .domain(d3.extent(data, dataPoint => dataPoint.date));
+
       const line = d3
-      .line()
-      .x(dataPoint => xScale(dataPoint.date))
-      .y(dataPoint => yScale(dataPoint.Population));
-      
+        .line()
+        .x(dataPoint => xScale(dataPoint.date))
+        .y(dataPoint => yScale(dataPoint.Population));
+
       // Add path
       const addPath = () => {
         const path = grp
-        .append("path")
-        .attr("transform", `translate(${margin.left},0)`)
-        .datum(data)
-        .attr("fill", "none")
-        .attr("stroke", "steelblue")
-        .attr("stroke-linejoin", "round")
-        .attr("stroke-linecap", "round")
-        .attr("stroke-width", 4)
-        .attr("d", line);
-      
+          .append("path")
+          .attr("transform", `translate(${margin.left},0)`)
+          .datum(data)
+          .attr("fill", "none")
+          .attr("stroke", "steelblue")
+          .attr("stroke-linejoin", "round")
+          .attr("stroke-linecap", "round")
+          .attr("stroke-width", 4)
+          .attr("d", line);
+
         const pathLength = path.node().getTotalLength();
         const transitionPath = d3
-        .transition()
-        .ease(d3.easeSin)
-        .duration(5000)
-        .on("end", loopPath);
-      
+          .transition()
+          .ease(d3.easeSin)
+          .duration(5000)
+          .on("end", loopPath);
+
         path
-        .attr("stroke-dashoffset", pathLength)
-        .attr("stroke-dasharray", pathLength)
-        .transition(transitionPath)
-        .attr("stroke-dashoffset", 0);
+          .attr("stroke-dashoffset", pathLength)
+          .attr("stroke-dasharray", pathLength)
+          .transition(transitionPath)
+          .attr("stroke-dashoffset", 0);
       }
-      
+
       const loopPath = () => {
         grp.select("path").remove();
         addPath();
       }
-      
+
       addPath();
 
       // Add the X Axis
       chart
-      .append("g")
-      .attr("transform", `translate(0,${height})`)
-      .call(d3.axisBottom(xScale).ticks(data.length));
+        .append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(xScale).ticks(data.length));
 
       svg.append("text")      // text label for the x axis
-      .attr("x", width / 2 )
-      .attr("y",  height + margin.bottom)
-      .style("text-anchor", "middle")
-      .text("Year");
+        .attr("x", width / 2)
+        .attr("y", height + margin.bottom)
+        .style("text-anchor", "middle")
+        .text("Year");
       // Add the Y Axis
       chart
-      .append("g")
-      .attr("transform", `translate(0, 0)`)
-      .call(d3.axisLeft(yScale));
+        .append("g")
+        .attr("transform", `translate(0, 0)`)
+        .call(d3.axisLeft(yScale));
 
       svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0)
-      .attr("x",0 - (height / 2))
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .text("Population");
-      
-      </script>
-  </div>
-</section>
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Population");
 
-<!--Expected Population-->
-<section class="History">
-  <div class="row">
-    <div class="spacer" data-aos="fade-in"> <h2 style="color: grey;">Over the coming years</h2> 
-      <h1 style="color: red;">Expected Population Growth</h1>
-      <p style="font-size: 16px;">Melbourne has the 10th largest immigrant population among world 
-        metropolitan areas. In Greater Melbourne 
-        at the 2016 census, 63.3% of residents were born in Australia. The number significantly rose
-      over 25% in three years.</p>
+    </script>
+    </div>
+  </section>
+
+  <!--Expected Population-->
+  <section class="History">
+    <div class="row">
+      <div class="spacer" data-aos="fade-in">
+        <h2 style="color: grey;">Over the coming years</h2>
+        <h1 style="color: red;">Expected Population Growth</h1>
+        <p style="font-size: 16px;">Melbourne has the 10th largest immigrant population among world
+          metropolitan areas. In Greater Melbourne
+          at the 2016 census, 63.3% of residents were born in Australia. The number significantly rose
+          over 25% in three years.</p>
       </div>
-    <div class="spacer">
-      <canvas id="expLinechart" height="500px" width="500px"></canvas>
+      <div class="spacer">
+        <canvas id="expLinechart" height="500px" width="500px"></canvas>
+      </div>
+
     </div>
 
-  </div>
-  
-</section>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  var ctx = document.getElementById("expLinechart").getContext('2d');
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    var ctx = document.getElementById("expLinechart").getContext('2d');
     let Linechart = new Chart(expLinechart, {
-                    type:'line',
-                    data: {
-                      labels: ['2021','2022','2023','2024','2025','2026','2027','2028','2029','2030','2031','2032','2033','2034','2035'],
-                      datasets:[{
-                        label: 'Expected Population',
-                        backgroundColor: 'blue',
-                        borderColor: 'red',
-                        data: [5061000,5061000,5235000,5316000,5392000,5465000,5535000,5604000,5604000,5671000,5736000,5801000,5865000,5929000,5992000,6056000],
-                      }]
-                    }
-                  });
-</script>
+      type: 'line',
+      data: {
+        labels: ['2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034', '2035'],
+        datasets: [{
+          label: 'Expected Population',
+          backgroundColor: 'blue',
+          borderColor: 'red',
+          data: [5061000, 5061000, 5235000, 5316000, 5392000, 5465000, 5535000, 5604000, 5604000, 5671000, 5736000, 5801000, 5865000, 5929000, 5992000, 6056000],
+        }]
+      }
+    });
+  </script>
 
 
-<!---Demographic Data Population/Ethinicity/BrithRates/GenderRation/IncomeData/CrimeData-->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.js"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.css" rel="stylesheet" type="text/css">
-<section class="History">
-  <div class="row">
+  <!---Demographic Data Population/Ethinicity/BrithRates/GenderRation/IncomeData/CrimeData-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.css" rel="stylesheet" type="text/css">
+  <section class="History">
+    <div class="row">
       <div class="spacer" data-aos="fade-in">
-      <h1>Demographic Analysis</h1>
-      <h3>Melbourne is a multi-cultural city</h3>
-      <p>Areas within the Greater Melbourne area host varying groups of 
-        socio-economic background, inner city areas tend to be more affluent, 
-        gentrified or bohemian, suburban areas tend to house middle class 
-        residents,whilst outer suburban areas tend to house lower income residents.
-      </p>
+        <h1>Demographic Analysis</h1>
+        <h3>Melbourne is a multi-cultural city</h3>
+        <p>Areas within the Greater Melbourne area host varying groups of
+          socio-economic background, inner city areas tend to be more affluent,
+          gentrified or bohemian, suburban areas tend to house middle class
+          residents,whilst outer suburban areas tend to house lower income residents.
+        </p>
       </div>
       <div class="spacer">
         <div class="item">
           <a href="index3.html"><button class="btn">Explore</button></a>
-        </div> 
-      </div>  
-  </div>
-</section>  
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!--Residential Data-->
+  <!--Residential Data-->
   <section class="History">
     <div class="row">
-        <div class="column-col" data-aos="fade-in">
-          <h1>Residential and Housing</h1>
-          <h3 style="color:blue; font-size:2em">Melbourne is currently 
-            home to over 1.8 million households</h3>
-          <p style="font-size: 16px;"> 
-          It is estimated to grow to over 2.4 million households by 2036. 
-          Melbourne has become Australia's most densely populated area, 
+      <div class="column-col" data-aos="fade-in">
+        <h1>Residential and Housing</h1>
+        <h3 style="color:blue; font-size:2em">Melbourne is currently
+          home to over 1.8 million households</h3>
+        <p style="font-size: 16px;">
+          It is estimated to grow to over 2.4 million households by 2036.
+          Melbourne has become Australia's most densely populated area,
           with approximately 19,500 residents per square kilometre. <br> <br>
-          Below we look at some data on residential prices over popular housing 
+          Below we look at some data on residential prices over popular housing
           layouts in Melbourne.
-          </p>
-        </div>
+        </p>
+      </div>
 
-        <div class="column-col">
-          <div><img src="Assets/housing.jpg"></div>
-        </div>
+      <div class="column-col">
+        <div><img src="Assets/Eureka Towers.jpg"></div>
+      </div>
     </div>
     <div class="row">
       <div id="chart1" class="spacer"></div>
     </div>
   </section>
-    <script>
-        var chart1 = c3.generate({
-        bindto: '#chart1',
-          data: {
-            order:'desc',
-            columns: [
-              ['1 Bedroom',200.0,210.0,240.0,240.0,250.0,260.0,270.0,280.0,300.0,345.0,350.0,370.0,375.0,370.0,370.0,380.0,370.0,390.0,415.0],
-              ['2 Bedroom',298.0,310.0,320.0,330.0,340.0,340.0,350.0,370.0,420.0,458.0,480.0,490.0,500.0,500.0,500.0,500.0,520.0,530.0,570.0],
-              ['3 Bedroom',380.0,418.0,413.0,450.0,450.0,460.0,478.0,510.0,580.0,590.0,650.0,660.0,660.0,680.0,705.0,691.0,700.0,730.0,770.0],
-              ['4 Bedroom',380.0,350.0,430.0,398.0,420.0,440.0,380.0,550.0,645.0,670.0,750.0,770.0,800.0,815.0,800.0,845.0,890.0,880.0,860.0],
-            ],
-            type: 'line',
+  <script>
+    var chart1 = c3.generate({
+      bindto: '#chart1',
+      data: {
+        order: 'desc',
+        columns: [
+          ['1 Bedroom', 200.0, 210.0, 240.0, 240.0, 250.0, 260.0, 270.0, 280.0, 300.0, 345.0, 350.0, 370.0, 375.0, 370.0, 370.0, 380.0, 370.0, 390.0, 415.0],
+          ['2 Bedroom', 298.0, 310.0, 320.0, 330.0, 340.0, 340.0, 350.0, 370.0, 420.0, 458.0, 480.0, 490.0, 500.0, 500.0, 500.0, 500.0, 520.0, 530.0, 570.0],
+          ['3 Bedroom', 380.0, 418.0, 413.0, 450.0, 450.0, 460.0, 478.0, 510.0, 580.0, 590.0, 650.0, 660.0, 660.0, 680.0, 705.0, 691.0, 700.0, 730.0, 770.0],
+          ['4 Bedroom', 380.0, 350.0, 430.0, 398.0, 420.0, 440.0, 380.0, 550.0, 645.0, 670.0, 750.0, 770.0, 800.0, 815.0, 800.0, 845.0, 890.0, 880.0, 860.0],
+        ],
+        type: 'line',
+      },
+      interpolation: {
+        type: "basis"
+      },
+      axis: {
+        x: {
+          type: 'category',
+          categories: ['1999', '2000', '2001', '2002', '2003', '2004', '2005',
+            '2006', '2007', '2008', '2009', '2010', '2011', '2012',
+            '2013', '2014', '2015', '2016', '2017'],
+          label: { // ADD
+            text: 'Year',
+            position: 'outer-middle'
+          }
+        },
+        y: {
+          show: true,
+          label: { // ADD
+            text: 'Rent ($/week)',
+            position: 'outer-middle'
           },
-          interpolation: {
-            type: "basis"
-          },
-          axis: {
-            x: {
-              type: 'category',
-              categories: ['1999','2000','2001','2002','2003','2004','2005',
-                           '2006','2007','2008','2009','2010','2011','2012',
-                           '2013','2014','2015','2016','2017'],
-              label: { // ADD
-                text: 'Year',
-                position: 'outer-middle'
-              }
-            },
-            y:{
-              show: true,
-              label: { // ADD
-                text: 'Rent ($/week)',
-                position: 'outer-middle'
-              },
-            }, 
-          },
-          tooltip: {
-            grouped: false,
-            contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-              var $$ = this, config = $$.config, CLASS = $$.CLASS,
-                titleFormat = config.tooltip_format_title || defaultTitleFormat,
-                nameFormat = config.tooltip_format_name || function (name) { return name; },
-                valueFormat = config.tooltip_format_value || defaultValueFormat,
-                text, i, title, value, name, bgcolor;
-                for (i = 0; i < d.length; i++){
-                  
-                  if (! text) {
-                    title = titleFormat(d[i].x,d[i].index);
-                    text = "<table class='" + CLASS.tooltip + "'>" + (title || title === 0 ? "<tr><th colspan='2'>" + title + "</th></tr>" : "");
-                }
-                name = nameFormat(d[i].name);
-                value = valueFormat(d[i].value, d[i].ratio, d[i].id, d[i].index);
-                bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
-                text += "<tr class='" + CLASS.tooltipName + "-" + d[i].id + "'>";
-                text += "<td class='name'><span style='background-color:" + bgcolor + "'></span>" + name + "</td>";
-                text += "<td class='value'>$ " + value + "</td>";
-                text += "</tr>";
-                }
-            return text+"</table>";
-            },
-          },
-          color: {
-            pattern: ['#1f77b4', '#ff7f0e', '#ffbb78', '#2ca02c', '#d62728', '#ff9896', '#9467bd', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5']
-          },
-          tooltip: {
-          grouped: false,
-        }
-      });
-  </script>
+        },
+      },
+      tooltip: {
+        grouped: false,
+        contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+          var $$ = this, config = $$.config, CLASS = $$.CLASS,
+            titleFormat = config.tooltip_format_title || defaultTitleFormat,
+            nameFormat = config.tooltip_format_name || function (name) { return name; },
+            valueFormat = config.tooltip_format_value || defaultValueFormat,
+            text, i, title, value, name, bgcolor;
+          for (i = 0; i < d.length; i++) {
 
-<!--Housing Rent/HousePrices and spread-->
-<!--Transport Network Trams/Cycling/Taxies/TrafficData(Automoblies and humans time wise)-->
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css' rel='stylesheet' />
-<section class="History">
+            if (!text) {
+              title = titleFormat(d[i].x, d[i].index);
+              text = "<table class='" + CLASS.tooltip + "'>" + (title || title === 0 ? "<tr><th colspan='2'>" + title + "</th></tr>" : "");
+            }
+            name = nameFormat(d[i].name);
+            value = valueFormat(d[i].value, d[i].ratio, d[i].id, d[i].index);
+            bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
+            text += "<tr class='" + CLASS.tooltipName + "-" + d[i].id + "'>";
+            text += "<td class='name'><span style='background-color:" + bgcolor + "'></span>" + name + "</td>";
+            text += "<td class='value'>$ " + value + "</td>";
+            text += "</tr>";
+          }
+          return text + "</table>";
+        },
+      },
+      color: {
+        pattern: ['#1f77b4', '#ff7f0e', '#ffbb78', '#2ca02c', '#d62728', '#ff9896', '#9467bd', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5']
+      },
+      tooltip: {
+        grouped: false,
+      }
+    });
+  </script>
+  <!--Commercial Spaces-->
+  <section class="History">
     <div class="row">
-        <div class="spacer" data-aos="fade-in">
-        <h1>Local Network</h1>
-        <h3>De-facto Capital</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, 
-                vel! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <div class="item">
-                  <a href="index2.html"><button class="btn">Explore</button></a>
-                </div> 
-        </div>
-        <div class="spacer">
-          <img src="Assets/transport.jpg"> 
-        </div>
+      <div class="column-col" data-aos="fade-in">
+        
+      </div>
     </div>
- 
+
+    <div class="row">
+      <div class="spacer">
+        <div class='tableauPlaceholder' id='viz1634793591959' style='position: relative'>
+          <noscript><a href='#'>
+              <img alt='Cotextual Commercial , residential &amp; industrial data '
+                src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ra&#47;Radialchart1_16346155188320&#47;Sheet1&#47;1_rss.png'
+                style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Radialchart1_16346155188320&#47;Sheet1' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ra&#47;Radialchart1_16346155188320&#47;Sheet1&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1634793591959'); 
+          var vizElement = divElement.getElementsByTagName('object')[0]; 
+          vizElement.style.width = '100%'; 
+          vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; 
+          var scriptElement = document.createElement('script'); 
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; 
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+      </div>
+      <div class="spacer">
+        <h1>Commercial Spaces</h1>
+        <h3 style="color: blue; font-size:2em">The central business district (CBD) is Melbourne's business and financial centre.</h3>
+        <p style="font-size: 16px;">The CBD is home to retail, financial, legal, administrative,
+          recreational, tourist and entertainment facilities and operates
+          24 hours a day, serving a wide variety of residents, workers and visitors>
+          <br><br>Certain dwellings have both residential and commercial interests  
+          <br>
+          Service apartments & Hotels are also contextualized as commercial dwellings.
+        </p>
+      </div>
+    </div>
+      <div class="row"></div>
+        <div class="spacer"></div>
+        <div class='tableauPlaceholder' id='viz1634791464492' style='position: relative'><noscript><a href='#'><img
+                alt='Sheet 1 '
+                src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Of&#47;Officefloorvisualiztion&#47;Sheet1&#47;1_rss.png'
+                style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Officefloorvisualiztion&#47;Sheet1' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image'
+              value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Of&#47;Officefloorvisualiztion&#47;Sheet1&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+          </object>
+        </div>
+        <script type='text/javascript'>
+          var divElement = document.getElementById('viz1634791464492');
+          var vizElement = divElement.getElementsByTagName('object')[0];
+          vizElement.style.width = '100%';
+          vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+          vizElement.parentNode.insertBefore(scriptElement, vizElement);
+        </script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+        </script> 
+      </div>
+  </section>
+
+  <!--Transport Network Trams/Cycling/Taxies/TrafficData(Automoblies and humans time wise)-->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css' rel='stylesheet' />
+  <section class="History">
+    <div class="row">
+      <div class="spacer" data-aos="fade-in">
+        <h1>Local Network</h1>
+        <h3 style="color: green;">2.2 Million live in Greater Melbourne</h3>
+        <p style="font-size: 16px; "> To support their commute and also make travel affordable and efficient for tourists Melbourne has an extensive public transport network.
+         Public Transport systems which are environmentally friendly and sustainable. These include from the 
+          popular bicycle culture to trams.
+        </p>
+        <div class="item">
+          <a href="index2.html"><button class="btn">Explore</button></a>
+        </div>
+      </div>
+      <div class="spacer">
+        <img src="Assets/transport.jpg">
+      </div>
+    </div>
+    <!--DigitalData(PartiallyAPartof)-->
     <section class="History">
       <div class="row">
+        <div class="spacer" data-aos="fade-in">
+          <div>
+            <h1>Digital Infrastructure</h1>
+            <h3>Public Wifi Zones</h3>
+            <p style="font-size: 16px; ">As we can see a lot of it is quite concentrated on the CBD area of greater Melbourne.</p>
+          </div>
+        </div>
+        <div class="spacer">
+          <iframe width='100%' height='600px'
+            src="https://api.mapbox.com/styles/v1/hellohumans/ckuwe620npm2y17o4wfg2rlu3.html?title=false&access_token=pk.eyJ1IjoiaGVsbG9odW1hbnMiLCJhIjoiY2t1ZDY3MHdjMTZ6ZTJwbG11djdhNm5pdCJ9.gj57wkUxjsC05lEI69lcDw&zoomwheel=false#13.21/-37.80899/144.95957"
+            title="Basic" style="border:none;"></iframe>
+        </div>
+      </div>
+      </div>
+    </section>
+      <section class="History">
+        <div class="row">
           <div class="column-col" data-aos="fade-in">
-          <div><h1>Digital Infrastructure</h1>
-            <h3>De-facto Capital</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, 
-                    vel! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p></div>
+              <h1>Melbourne’s Cultures</h1>
+              <h2 style="color: brown">The Art of Coffee</h2>
+              <p style="font-size: 16px;">
+                Melbourne’s coffee in itself is an art form.
+                Coffee in Melbourne can be traced back to the arrival of 
+                Italian and Greek immigrants after World War II. As a 
+                generation of migrants brought their beloved European-style 
+                espresso machines to Melbourne, the espresso boom of the 1950s 
+                soon became a way of life.
+              </p>
+              <img src="Assets/coffee.jpg">
           </div>
           <div class="column-col">
-            <iframe width='100%' height='600px' src="https://api.mapbox.com/styles/v1/hellohumans/ckuwe620npm2y17o4wfg2rlu3.html?title=false&access_token=pk.eyJ1IjoiaGVsbG9odW1hbnMiLCJhIjoiY2t1ZDY3MHdjMTZ6ZTJwbG11djdhNm5pdCJ9.gj57wkUxjsC05lEI69lcDw&zoomwheel=false#13.21/-37.80899/144.95957" title="Basic" style="border:none;"></iframe>
-            </div>  
+            <img src="Assets/culture.jpg">
+            <p>Duckboard Place</p>
+            <h2 style="color: rgb(211, 123, 16);">The Flavour of Grafitti</h2>
+            <p style="font-size: 16px;""> While you sip your coffee and enjoy the live music or take a break
+              from work, Melbourne’s streets and alleys always have more flavours for your eyes
+              to feast on. Earlier Melbourne is also know as the "Stencil Capital of the World"
+              <br><br> These art forms include : Woodblicking, sticker art, wheatpasting, graphs, street installations and reverse grafitti.
+              Many of there art forms represent not only artists but activists spreading awareness.
+              <br><br> Below are some of the most popular places: 
+            </p>
           </div>
+        </div>
+      </section>
+      <section class="History">
+        <div class="btn-group">
+          <button type="button" id="allbus">All</button>
+          <button type="button" id="art">Art</button>
+          <button type="button" id="cafes">Cafes</button>
       </div>
-<!--DigitalData(PartiallyAPartof)-->
+        <div id="mapid"></div>
+      </section>
+      <!--Cultural Data Leaflet JS SCRIPT-->
+      <script>
+        var mapboxTiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoiaGVsbG9odW1hbnMiLCJhIjoiY2t1ZDY3MHdjMTZ6ZTJwbG11djdhNm5pdCJ9.gj57wkUxjsC05lEI69lcDw'
+        });
+      
+        // DECLARE CUSTOM ICONS
+        var cafeIcon = L.AwesomeMarkers.icon({
+            prefix: 'fa',
+            markerColor: 'purple', 
+            icon: 'coffee',
+        });
+        // DECLARE CUSTOM ICONS
+        var music = L.AwesomeMarkers.icon({
+            prefix: 'fa',
+            markerColor: 'red',
+            icon: 'camera', 
+        });
+        var mymap = L.map('mapid').addLayer(mapboxTiles).setView([-37.7983, 144.9610], 13);
 
-<script src="JS/rellax.js"></script>
-<script src="JS/rellax.min.js"></script>
-<script>
-  var rellax = new Rellax('.rellax')
-</script>
+        // Import data from GeoJSON
+        var promise = $.getJSON("Culture_json.json");
+        promise.then(function(data) {
+            var all_acts = L.geoJson(data);
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init({
-    offset: 120,
-    duration: 3000,
+        //SEGREGATE COFFEE
+        var cafes = L.geoJson(data, {
+            filter: function(feature, layer) {
+                return feature.properties.BusType == "Cafe";
+            },
+        //CUSTOM MARKERS
+            pointToLayer: function(feature, latlng) {
+                return L.marker(latlng, {
+                    icon: cafeIcon
+                }).on('mouseover', function(){
+                    this.bindPopup(feature.properties.Name).openPopup();
+                });
+            }
+        });
+        //SEGREGATE ART
+        var ART = L.geoJson(data, {
+            filter: function(feature, layer) {
+                return feature.properties.BusType == "ART";
+            },
+        //CUSTOM MARKERS
+            pointToLayer: function(feature, latlng) {
+                return L.marker(latlng, {
+                    icon: music
+                }).on('mouseover', function(){
+                    this.bindPopup(feature.properties.Name).openPopup();
+                });
+            }
+        });
+
+        mymap.fitBounds(all_acts.getBounds(), {
+            padding: [50, 50]
+        });
+        cafes.addTo(mymap)
+        ART.addTo(mymap)
+        // Button configuration
+        $("#allbus").click(function(){
+            mymap.addLayer(cafes)
+            mymap.addLayer(ART)
+        });
+        $("#art").click(function(){
+            mymap.addLayer(ART)
+            mymap.removeLayer(cafes)
+        });
+        $("#cafes").click(function(){
+            mymap.addLayer(cafes)
+            mymap.removeLayer(ART)
+        });
     });
-</script>
+    </script>
+    
+      <script src="JS/rellax.js"></script>
+      <script src="JS/rellax.min.js"></script>
+      <script>
+        var rellax = new Rellax('.rellax')
+      </script>
+
+      <script>AOS.init({
+          offset: 120,
+          duration: 3000,
+        });
+      </script>
 </body>
+
 </html>

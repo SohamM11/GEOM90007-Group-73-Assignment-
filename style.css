@@ -76,7 +76,7 @@ body{
     justify-content: space-evenly;
 }
 .column-col{
-    flex-basis: 80%;
+    flex-basis: 50%;
     background: white;
     border-radius: 10px;
     margin-bottom: 30px;
@@ -292,7 +292,7 @@ p{
     padding-left: 10px;
 }
 .btn{
-    transform: translateY(100px);
+    transform: translateY(40px);
     display: block;
     border: 0;
     font-family: Helvetica Bold;
@@ -303,4 +303,9 @@ p{
     background: #0081D5;
     color: #fff;
     cursor: pointer;
+}
+@media(max-width: 700px){
+    .spacer{
+     flex-direction: column;
+   }
 }
