@@ -1,3 +1,4 @@
+# Kindly please run index.html and ingore others (until formatted)
 # GEOM90007-Group-73-Assignment-Details
 # SUBMITION 24 October 2021, 23:59 pm
 
