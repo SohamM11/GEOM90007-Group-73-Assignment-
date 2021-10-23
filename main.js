@@ -173,7 +173,7 @@ var svgPie = d3.select("#id_genderPie")
             .attr("viewBox", [0, 0, width, height]);
 
 var pieChart = svgPie.append("g")
-                    .attr("transform", "translate(450,300) scale(1.2,1.2)");
+                    .attr("transform", "translate(" + (width/2 + 100) + ",300) scale(1.2,1.2)");
 
 var radius = Math.min(width, height) / 3 - 1;
 
@@ -214,6 +214,7 @@ function updatePie(processData) {
         .on('mouseover', function (e, d) {
             let pos = d3.select(this).node().getBoundingClientRect();
             d3.select("#suburb").text(d.data.suburb);
+            d3.select("#population").text(d.data.totalCount);
             d3.select("#male").text(d.data.gender[0].count);
             d3.select("#female").text(d.data.gender[1].count);
             d3.select("#pieTooltip")
