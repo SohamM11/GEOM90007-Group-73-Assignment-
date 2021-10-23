@@ -5,6 +5,7 @@ var width = document.getElementById("id_genderPie").clientWidth,
 var data = jsonData;
 var processedData = [];
 
+//Data preprocessing to get the data in single object to be used in all the charts.
 var pieProcessing = function (s) {
     processedData = [];
     for (const iterator of d3.map(data, function (k) { return k.geography; }).entries()) {
@@ -12,6 +13,7 @@ var pieProcessing = function (s) {
             o = {};
         var count = 0;
         var temp = [];
+        //Getting the City of Melbourne data in the object for the first render
         if (!processedData.find(({ suburb }) => suburb === iterator[1]) && iterator[1] != 'Greater Melbourne') {
             if (s === "All") {
                 obj['suburb'] = iterator[1];
@@ -29,6 +31,9 @@ var pieProcessing = function (s) {
                 });
                 var genderGroup = data.filter(function (k) {
                     return (k.geography === iterator[1] && k.category === 'Gender')
+                });
+                var migrationGroup = data.filter(function (k) {
+                    return (k.geography === iterator[1] && k.category === 'Country of birth - detailed')
                 });
                 for (const i of tenYearGroup) {
                     o = {};
@@ -70,9 +75,18 @@ var pieProcessing = function (s) {
                     temp.push(o);
                 }
                 obj['gender'] = temp;
+                temp = [];
+                for (const i of migrationGroup) {
+                    o = {};
+                    o['country'] = i.sub_category;
+                    o['count'] = i.value;
+                    temp.push(o);
+                }
+                obj['migration'] = temp;
                 obj['totalCount'] = count;
                 processedData.push(obj);
             }
+            //Getting the data of the specific suburbs in the object to enhance user interaction
             else {
                 if (!processedData.find(({ suburb }) => suburb === s) && iterator[1] != 'Greater Melbourne') {
                     obj['suburb'] = s;
@@ -87,6 +101,12 @@ var pieProcessing = function (s) {
                     });
                     var incomeGroup = data.filter(function (k) {
                         return (k.geography === s && k.category === 'Household income - overview' && !(k.sub_category.includes('stated')))
+                    });
+                    var genderGroup = data.filter(function (k) {
+                        return (k.geography === s && k.category === 'Gender')
+                    });
+                    var migrationGroup = data.filter(function (k) {
+                        return (k.geography === s && k.category === 'Country of birth - detailed')
                     });
                     for (const i of tenYearGroup) {
                         o = {};
@@ -120,6 +140,23 @@ var pieProcessing = function (s) {
                         temp.push(o);
                     }
                     obj['incomeGroup'] = temp;
+                    temp = [];
+                    for (const i of genderGroup) {
+                        o = {};
+                        o['gender'] = i.sub_category;
+                        o['count'] = i.value;
+                        temp.push(o);
+                    }
+                    obj['gender'] = temp;
+                    temp = [];
+                    for (const i of migrationGroup) {
+                        o = {};
+                        o['suburb'] = i.geography;
+                        o['country'] = i.sub_category;
+                        o['count'] = i.value;
+                        temp.push(o);
+                    }
+                    obj['migration'] = temp;
                     obj['totalCount'] = count;
                     processedData.push(obj);
                 }
@@ -136,7 +173,7 @@ var svgPie = d3.select("#id_genderPie")
             .attr("viewBox", [0, 0, width, height]);
 
 var pieChart = svgPie.append("g")
-                    .attr("transform", "translate(250,250)");
+                    .attr("transform", "translate(450,300) scale(1.2,1.2)");
 
 var radius = Math.min(width, height) / 3 - 1;
 
@@ -147,6 +184,7 @@ var arcLabel = d3.arc().innerRadius(Math.min(width, height) / 2 * 0.2).outerRadi
 
 var piePath = pieChart.selectAll("path");
 
+//Update function to be called everytime the Pie chart is rendered. Inline with the d3 design patterns
 function updatePie(processData) {
     d3.selectAll("#piepath").remove();
     d3.selectAll("#pielabel").remove();
@@ -164,12 +202,15 @@ function updatePie(processData) {
         .attr("stroke", "black")
         .style("stroke-width", "2px")
         .style("opacity", 0.6)
+        //Mouse event to update the subsequent charts to allow user to drill down
         .on("click", function(e, k){
             updateAgeBarChart(pieProcessing(k.data.suburb)[0]);
             updateEduBarChart(pieProcessing(k.data.suburb)[0]);
             updateHHBarChart(pieProcessing(k.data.suburb)[0]);
             updateIncomeBarChart(pieProcessing(k.data.suburb)[0]);
+            updateChoropleth(pieProcessing(k.data.suburb)[0]);
         })
+        //Tooltip
         .on('mouseover', function (e, d) {
             let pos = d3.select(this).node().getBoundingClientRect();
             d3.select("#suburb").text(d.data.suburb);
@@ -177,7 +218,7 @@ function updatePie(processData) {
             d3.select("#female").text(d.data.gender[1].count);
             d3.select("#pieTooltip")
                 .transition().duration(200)
-                .style('left', (pos['x'] + 10) + 'px')
+                .style('left', (pos['x'] -150 ) + 'px')
                 .style('top', (window.pageYOffset + pos['y'] - 10) + 'px')
                 .style('opacity', 0.8);
         })
@@ -188,7 +229,7 @@ function updatePie(processData) {
             d3.select("#female").text(d.data.gender[1].count);
             d3.select("#pieTooltip")
                 .transition().duration(200)
-                .style('left', (pos['x'] + 10) + 'px')
+                .style('left', (pos['x'] - 150) + 'px')
                 .style('top', (window.pageYOffset + pos['y'] - 10) + 'px')
                 .style('opacity', 0.8);
         })
@@ -199,6 +240,7 @@ function updatePie(processData) {
 updatePie(pieProcessing('All'));
 
 //suburb Age Profile
+//Static content to render the bar chart. Such as initialising axes and SVG
 var curwidth = parseInt(d3.select("#id_ageGroup").style("width"), 10);
 var svgBar = d3.select("#id_ageGroup")
             .append("svg")
@@ -206,7 +248,7 @@ var svgBar = d3.select("#id_ageGroup")
             .attr("preserveAspectRatio", "xMinYMin meet");
 
 var barChart = svgBar.append("g")
-                    .attr("transform", "translate(75, 0) scale(0.8,0.8)");
+                    .attr("transform", "translate(100, 0) scale(0.9,0.9)");
 
 var xBar = barChart.append("g")
                 .attr("transform", "translate(0," + height + ")");
@@ -222,7 +264,7 @@ barChart.append("text")
         .text("Age Group");
 
 var bar = barChart.selectAll("rect");
-
+//Update function to be called everytime the Bar chart is rendered. Inline with the d3 design patterns
 function updateAgeBarChart(d) {
     var x = d3.scaleLinear()
             .domain([0, d3.max(d.grpCount, k => k.count)])
@@ -247,14 +289,14 @@ function updateAgeBarChart(d) {
         .attr("height", barWidth)
         .attr("fill", function(k){ 
             if (k.count === d3.max(d.grpCount, u => u.count)){
-                return "#e89609"
+                return "#990000";
             }
             else {
-                return "#afadad"
+                return "#58a758";
             }
         });
     
-    
+    //display the actual value on the bar chart
     var text = bar.data(d.grpCount)
                 .join("text")
                 .attr("id", "ageGroupLabel")
@@ -272,14 +314,14 @@ updateAgeBarChart(pieProcessing("City of Melbourne")[0]);
 
 
 //suburb Education Profile
-
+//Static content to render the bar chart. Such as initialising axes and SVG
 var svgEduBar = d3.select("#id_eduGroup")
                 .append("svg")
                 .attr("viewBox", [0, 0, width, height])
                 .attr("preserveAspectRatio", "xMinYMin meet");
 
 var eduBarChart = svgEduBar.append("g")
-                        .attr("transform", "translate(150,0) scale(0.7,0.7)");
+                        .attr("transform", "translate(200,50) scale(0.8,0.8)");
 
 var xBar = eduBarChart.append("g")
                     .attr("transform", "translate(0," + height + ")");
@@ -296,6 +338,7 @@ eduBarChart.append("text")
 
 var eduBar = eduBarChart.selectAll("rect");
 
+//Update function to be called everytime the Bar chart is rendered. Inline with the d3 design patterns
 function updateEduBarChart(d) {
     var x = d3.scaleLinear()
             .domain([0, d3.max(d.eduLevel, k => k.count)])
@@ -320,14 +363,14 @@ function updateEduBarChart(d) {
         .attr("height", barWidth)
         .attr("fill", function(k){ 
             if (k.count === d3.max(d.eduLevel, u => u.count)){
-                return "#e89609"
+                return "#990000";
             }
             else {
-                return "#afadad"
+                return "#58a758";
             }
         });
     
-    
+    //display the actual value on the bar chart
     var text = eduBar.data(d.eduLevel)
                     .join("text")
                     .attr("id", "eduGroupLabel")
@@ -343,14 +386,14 @@ function updateEduBarChart(d) {
 updateEduBarChart(pieProcessing("City of Melbourne")[0]);
 
 //suburb household Profile
-
+//Static content to render the bar chart. Such as initialising axes and SVG
 var svgHHBar = d3.select("#id_hhGroup")
                 .append("svg")
                 .attr("viewbox", [0, 0, width, height])
                 .attr("preserveAspectRatio", "xMinYMin meet");
 
 var hhBarChart = svgHHBar.append("g")
-                        .attr("transform", "translate(150,0) scale(0.7,0.7)");
+                        .attr("transform", "translate(50,20) scale(0.8,0.8)");
 
 var xBar = hhBarChart.append("g")
                     .attr("transform", "translate(0," + height + ")");
@@ -367,7 +410,9 @@ hhBarChart.append("text")
 
 var hhBar = hhBarChart.selectAll("rect");
 
+//Update function to be called everytime the Bar chart is rendered. Inline with the d3 design patterns
 function updateHHBarChart(d) {
+    //Setting the domain & range for x & y axis.
     var x = d3.scaleLinear()
             .domain([0, d3.max(d.hhComp, k => k.count)])
             .range([0, width]);
@@ -391,14 +436,14 @@ function updateHHBarChart(d) {
         .attr("height", barWidth)
         .attr("fill", function(k){ 
             if (k.count === d3.max(d.hhComp, u => u.count)){
-                return "#e89609"
+                return "#990000"; 
             }
             else {
-                return "#afadad"
+                return "#58a758";
             }
         });
     
-    
+    //display the actual value on the bar chart
     var text = hhBar.data(d.hhComp)
                 .join("text")
                 .attr("id", "hhGroupLabel")
@@ -414,6 +459,7 @@ function updateHHBarChart(d) {
 updateHHBarChart(pieProcessing("City of Melbourne")[0]);
 
 //suburb income Profile
+//Static content to render the bar chart. Such as initialising axes and SVG
 var incomeWidth = document.getElementById("id_incomeGroup").clientWidth,
     incomeHeight = document.getElementById("id_incomeGroup").clientHeight;
 
@@ -422,7 +468,7 @@ var svgIncomeBar = d3.select("#id_incomeGroup")
                     .attr("viewbox", [0, 0, incomeWidth, incomeHeight]);
 
 var incomeBarChart = svgIncomeBar.append("g")
-                                .attr("transform", "translate(150,0) scale(0.7,0.7)");
+                                .attr("transform", "translate(100,50) scale(0.8,0.8)");
 
 var xBar = incomeBarChart.append("g")
                         .attr("transform", "translate(0," + incomeHeight + ")");
@@ -438,7 +484,7 @@ incomeBarChart.append("text")
             .text("Income Groups");
 
 var incomeBar = incomeBarChart.selectAll("rect");
-
+//Update function to be called everytime the Bar chart is rendered. Inline with the d3 design patterns
 function updateIncomeBarChart(d) {
     var x = d3.scaleLinear()
             .domain([0, d3.max(d.incomeGroup, k => k.count)])
@@ -463,10 +509,10 @@ function updateIncomeBarChart(d) {
             .attr("height", barWidth)
             .attr("fill", function(k){ 
                 if (k.count === d3.max(d.incomeGroup, u => u.count)){
-                    return "#e89609"
+                    return "#990000";
                 }
                 else {
-                    return "#afadad"
+                    return "#58a758";
                 }
             });
     
@@ -483,6 +529,128 @@ function updateIncomeBarChart(d) {
                         .text(function (k) { return k.count; });
 }
 updateIncomeBarChart(pieProcessing("City of Melbourne")[0]);
+
+//Chorpleth Map
+//Static content to render the bar chart. Such as initialising axes and SVG
+
+var mapBoxAccessToken = {token: "pk.eyJ1IjoibmlrZXRzaW5nbGEiLCJhIjoiY2t0M3dleWUwMGJzNTJubnFucHpvaDE3bCJ9.CdS7fCuMc-vGEBnFxnXDDA"};
+
+var map = L.map('map').setView([20.5937, 78.9629], 2);
+L.tileLayer('https://api.mapbox.com/styles/v1/niketsingla/ckv25v01z0r0s15p22a3ri42c/tiles/{z}/{x}/{y}?access_token=' + mapBoxAccessToken.token, {
+    id: 'niketsingla/ckv25v01z0r0s15p22a3ri42c',
+    tileSize: 512,
+    zoomOffset: -1
+}).addTo(map);
+
+function getColor(d) {
+    return d > 3000 ? '#800026' :
+           d > 1000  ? '#BD0026' :
+           d > 500  ? '#E31A1C' :
+           d > 100  ? '#FC4E2A' :
+           d > 50   ? '#FD8D3C' :
+           d > 20   ? '#FEB24C' :
+           d > 10   ? '#FED976' :
+                      '#FFEDA0';
+}
+
+function style(feature) {
+    return {
+        fillColor: getColor(feature),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+}
+var info = L.control();
+var geojson;
+geojson = L.geoJson(countries_geojson);
+
+//Update Choropleth function to be called everytime the chart is rendered. This will update the chart when user click on Pie slice. 
+function updateChoropleth(d){
+    for (const iterator of d.migration) {
+        if(iterator.country !== 'Born elsewhere' && iterator.country !== 'Australia' && iterator.country !== 'Not stated' && countries_geojson.features.find(element => element.properties.name === iterator.country) != undefined) {
+            L.geoJson(countries_geojson.features.find(element => element.properties.name === iterator.country)).addTo(map);
+            var myStyle = style(iterator.count);
+            L.geoJson(countries_geojson.features.find(element => element.properties.name === iterator.country), {style: myStyle}).addTo(map);
+            var k = countries_geojson.features.find(element => element.properties.name === iterator.country);
+            k.properties['value'] = iterator.count;
+            k.properties['suburb'] = iterator.suburb;
+            geojson = L.geoJson(countries_geojson.features.find(element => element.properties.name === iterator.country), {
+                style: myStyle,
+                onEachFeature: onEachFeature
+            }).addTo(map);
+        }
+    }
+}
+
+updateChoropleth(pieProcessing('City of Melbourne')[0]);
+
+function highlightFeature(e) {
+    var layer = e.target;
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
+    info.update(layer.feature.properties);
+}
+
+function resetHighlight(e) {
+    //geojson.resetStyle(e.target);
+    e.target.setStyle(e.target.options.style);
+    info.update();
+}
+
+function zoomToFeature(e) {
+    map.fitBounds(e.target.getBounds());
+}
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature
+    });
+}
+
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
+
+// method that we will use to update the control based on feature properties passed
+info.update = function (props) {
+    this._div.innerHTML = '<h4>Migration</h4>' +  (props ?
+        '<b>'+ props.value + ' people migrated from ' + props.name + '</b><br /><b>to ' + props.suburb + '</b>'
+        : 'Hover over a country');
+};
+
+info.addTo(map);
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [10, 20, 50, 100, 500, 1000, 3000],
+        labels = [];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    }
+    return div;
+};
+
+legend.addTo(map);
 
 function goBack() {
     window.history.back();
