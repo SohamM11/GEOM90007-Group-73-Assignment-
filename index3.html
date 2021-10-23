@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<title>Demographic Data</title>
+<body>
+    <div class="item" style="position:fixed; left:20px ; top:30px ;z-index:10;">
+        <button class="btn"onclick="goBack()">Back</button>
+    </div> 
+    <div class="container col-lg-10">
+    <div class="row max-height-vh-100">
+        <div class="col-lg-8 z-index-2" >
+        <h1>Demographic</h1>
+        <p> Now people might be curious about what sort of city they live in terms of certain factors like
+            Age, Distribution of income, Household Composition, etc. Here we have  crossfiltering charts 
+            allowing you to access all the relevant data at once. 
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 yearbar" id="id_genderPie"><span id="title">City of Melbourne Population Statistics</span></div>
+        <div id="pieTooltip" class="info">
+            Suburb: <span id="suburb"></span></br>
+            Male: <span id="male"></span></br>
+            Female: <span id="female"></span></br>
+            Click on the slice to update the bar chart and know more</br>
+        </div>
+        <div class="col-md-6 racebar" id="id_ageGroup"><span id="title">City of Melbourne Age Distribution</span></div>
+        <!-- <div id="raceTooltip" class="info">
+            Total: <span id="total"></span></br>
+            Percentage: <span id="percentage"></span>
+        </div> -->
+    </div>
+        <div class="row">
+            <div class="col-md-6 yearbar" id="id_eduGroup"><span id="title">City of Melbourne Population Education Level</span></div>
+            <div class="col-md-6 racebar" id="id_hhGroup"><span id="title">City of Melbourne Population Household Composition</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 yearbar" id="id_incomeGroup"><span id="title">City of Melbourne Population Income Distribution</span></div>
+            <div class="col-md-6 yearbar"></div>
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="main.js"></script>
+</body>
