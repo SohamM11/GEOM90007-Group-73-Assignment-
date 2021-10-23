@@ -296,7 +296,6 @@ p{
     padding-left: 10px;
 }
 .btn{
-    transform: translateY(40px);
     display: block;
     border: 0;
     font-family: Helvetica Bold;
