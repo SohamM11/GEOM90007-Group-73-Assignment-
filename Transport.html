@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--Bootstrap CSS-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="item" style="position:fixed; left:30px ; top:30px ;z-index:10;">
+        <button class="btn"onclick="goBack()">Back</button>
+    </div> 
+<section class="container">
+    <div class="row max-height-vh-100" style="font-family: Helvetica Bold;">
+        <div class="col-lg-8 z-index-2" >
+        <h1 style="left">Local Commute Network</h1>
+        <p style="font-family: Helvetica; font-size: 16px">The main requirement for a city to be looked upon favourably is a variety of modes of transportation available for
+            commuters. Melbourne is no different this city has a variety of modes of travel (notably cycling and tram) among 
+            others making it one of the most easily accessible cities in the world. We have choosen some of the very interesting 
+            thing we came across while researching. </p>
+      </div>
+    </div>
+</section>
+
+ 
+<section class="container">
+    <div class="row max-height-vh-100">
+        <div class="col-lg-8 z-index-2" >
+        <h2 style="font-family: Helvetica Bold;">Pedestrian Traffic</h2>
+        <p style="font-family: Helvetica; font-size: 16px">The map below shows us a density of pedestrian traffic for an average day in the city of Melbourne. 
+             Filtering by day and location might givee us some insight on what place is buzzing on which day of the week. </p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-10 mx-auto" >
+            <div class="card z-index-2">
+            <div id="map1" style="height: 500px"></div>
+            <div class="map-overlay top">
+                <div class="map-overlay-inner">
+                    <h4>Foot Traffic in melbourne</h4>
+                    <label id="day"></label>
+                    <input id="slider" type="range" min="0" max="6" step="1" value="0">
+                </div>
+                <div class="map-overlay-inner">
+                    <div id="legend" class="legend">
+                        <div class="bar"></div>
+                        <div>Average People per Location (P)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="row max-height-vh-100">
+        <div class="col-lg-8 z-index-2" >
+        <p style="font-family: Helvetica; font-size: 16px">The above map plots the density of pedestrian traffic in a given location in Melbourne. 
+           As we can see the trend stands that at any given time (weekdays and weekends) we have the city square being busy.
+           But the Doclands stadium and surrounding regions would much less crowded on weekends. This is interesting because 
+           city square has lower number of people too so one might expect them to hang out away from the city center but that is clearly not the case.
+         </p>
+      </div>
+    </div>
+</section>
+<section class="container">
+    <div class="row max-height-vh-100">
+        <div class="col-lg-8 z-index-2" >
+        <h3 style="font-family: Helvetica Bold;">Tram Network</h3>
+        <p style="font-family: Helvetica; font-size: 16px"> The following map shows the tram stations and lines for the city. Click on the tram lines or stations for more details.
+           </p>
+      </div>
+    </div>
+    <div class="row max-height-vh-100">
+        <div class="col-lg-10" >
+            <div class="card z-index-2">
+            <div id="map4" style="height: 400px"></div> 
+            </div>
+        </div>
+    </div></section>
+<section class="container" >
+    <div class="row max-height-vh-100">
+        <div class="col-lg-8 z-index-2" >
+        <h3 style="font-family: Helvetica Bold;">Road Network</h3>
+        <p style="font-family: Helvetica; font-size: 16px"> There are over 342 kilometres of roads within the municipality of Melbourne. The map below gives us some insight into 
+            how much and where they are present in the the city space.
+           </p>
+      </div>
+    </div>
+    <div class="row max-height-vh-100">
+        <div class="spacer col-lg-10">
+            <div class="card z-index-2" >
+            <div id="map2" style="height: 400px"></div> 
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container" >
+    <div class="row max-height-vh-100">
+        <div class="col-lg-8 z-index-2" >
+        <h3 style="font-family: Helvetica Bold;">Cycling and Cycle docks</h3>
+        <p style="font-family: Helvetica; font-size: 16px"> The unique part about melbourne is how much the people here love cycling. 
+            The map below shows locations of cycling docks and the density of cyclist in given area. People are always welcome to join them.
+           </p>
+      </div>
+    </div>
+    <div class="row max-height-vh-100">
+        <div class="spacer col-lg-10">
+            <div class="card z-index-2" >
+            <div id="map3" style="height: 400px"></div> 
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container">
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><!--did not work-->
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css' rel='stylesheet' />
+<script type="text/javascript" src="./JS/exec.js"></script>
+</body>
+</html>

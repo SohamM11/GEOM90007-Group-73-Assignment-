@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Leaflet.js CSS-->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <style>
+        #mapid { height: 700px; width: 700px; }
+    </style>
+</head>
+<body>
+    <div id="mapid"></div>
+    <script>
+        var mapboxTiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1IjoiaGVsbG9odW1hbnMiLCJhIjoiY2t1ZDY3MHdjMTZ6ZTJwbG11djdhNm5pdCJ9.gj57wkUxjsC05lEI69lcDw'
+        });
+      
+        // DECLARE CUSTOM ICONS
+        var cafeIcon = L.AwesomeMarkers.icon({
+            prefix: 'fa',
+            markerColor: 'purple', 
+            icon: 'coffee',
+        });
+        // DECLARE CUSTOM ICONS
+        var music = L.AwesomeMarkers.icon({
+            prefix: 'fa',
+            markerColor: 'red',
+            icon: 'camera', 
+        });
+        var mymap = L.map('mapid').addLayer(mapboxTiles).setView([-37.7983, 144.9610], 13);
+
+        // Import data from GeoJSON
+        var promise = $.getJSON("Culture_json.json");
+        promise.then(function(data) {
+            var all_acts = L.geoJson(data);
+
+        //SEGREGATE COFFEE
+        var cafes = L.geoJson(data, {
+            filter: function(feature, layer) {
+                return feature.properties.BusType == "Cafe";
+            },
+        //CUSTOM MARKERS
+            pointToLayer: function(feature, latlng) {
+                return L.marker(latlng, {
+                    icon: cafeIcon
+                }).on('mouseover', function(){
+                    this.bindPopup(feature.properties.Name).openPopup();
+                });
+            }
+        });
+        //SEGREGATE ART
+        var ART = L.geoJson(data, {
+            filter: function(feature, layer) {
+                return feature.properties.BusType == "ART";
+            },
+        //CUSTOM MARKERS
+            pointToLayer: function(feature, latlng) {
+                return L.marker(latlng, {
+                    icon: music
+                }).on('mouseover', function(){
+                    this.bindPopup(feature.properties.Name).openPopup();
+                });
+            }
+        });
+
+        mymap.fitBounds(all_acts.getBounds(), {
+            padding: [50, 50]
+        });
+        cafes.addTo(mymap)
+        ART.addTo(mymap)
+        // Button configuration
+        $("#allbus").click(function(){
+            mymap.addLayer(cafes)
+            mymap.addLayer(ART)
+        });
+        $("#art").click(function(){
+            mymap.addLayer(ART)
+            mymap.removeLayer(cafes)
+        });
+        $("#cafes").click(function(){
+            mymap.addLayer(cafes)
+            mymap.removeLayer(ART)
+        });
+    });
+    </script>
+    <div class="btn-group">
+        <button type="button" id="allbus">All</button>
+        <button type="button" id="art">Art</button>
+        <button type="button" id="cafes">Cafes</button>
+    </div>
+</body>
+</html>

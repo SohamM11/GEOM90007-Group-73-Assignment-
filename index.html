@@ -429,7 +429,7 @@
         <!---COLUMN-->
         <div class="spacer">
           <div class="item">
-            <a href="index3.html"><button class="btn">Explore</button></a>
+            <a href="demographic.html"><button class="btn">Explore</button></a>
           </div>
         </div>
       </div>
@@ -649,7 +649,7 @@
           </p>
           <!--BUTTON TRANSPORT VISUALISATIONS-->
           <div class="item">
-            <a href="index2.html"><button class="btn">Explore</button></a>
+            <a href="Transport.html"><button class="btn">Explore</button></a>
           </div>
         </div>
         <!--COLUMN-->
@@ -713,7 +713,10 @@
               forms include : Woodblicking, sticker art, wheatpasting, graphs, street installations and reverse
               grafitti.
               Many of there art forms represent not only artists but activists spreading awareness.
-              <br><br> Below are some of the most popular places:
+              <br><br> Below are some of the most popular places: <br>
+              <button type="button" id="allbus" style="background: #0081D5;">All</button>
+              <button type="button" id="art" style="background: rgb(189, 47, 189);">Art</button>
+              <button type="button" id="cafes">Cafes</button>
             </p>
           </div>
         </div>
@@ -727,12 +730,13 @@
           margin-right: auto;
         }
         button{
+          position: relative;
           border: 0;
           font-family: Helvetica Bold;
           font-size: 18px;
           line-height: 1;
-          padding: 15px 20px;
-          background: #0081D5;
+          padding: 5px 10px;
+          background: rgb(184, 24, 24);
           color: #fff;
           cursor: pointer;
           justify-content: space-between;
@@ -740,10 +744,7 @@
 
       </style>
       <!--LEAFLET-MAP-SECTION-->
-      <section class="container">
-          <button type="button" id="allbus">All</button>
-          <button type="button" id="art">Art</button>
-          <button type="button" id="cafes">Cafes</button>
+      <section class="container"">
         <div class="mapper" id="mapid"></div>
       </section>
 
@@ -761,13 +762,13 @@
         // DECLARE CUSTOM ICONS
         var cafeIcon = L.AwesomeMarkers.icon({
           prefix: 'fa',
-          markerColor: 'purple',
+          markerColor: 'red',
           icon: 'coffee',
         });
         // DECLARE CUSTOM ICONS
         var music = L.AwesomeMarkers.icon({
           prefix: 'fa',
-          markerColor: 'red',
+          markerColor: 'purple',
           icon: 'camera',
         });
         var mymap = L.map('mapid').addLayer(mapboxTiles).setView([-37.7983, 144.9610], 13);
@@ -826,18 +827,20 @@
           });
         });
       </script>
-
+      <!--EXTERNAL JS LIBRARIES-->
+      
       <script src="JS/rellax.js"></script>
       <script src="JS/rellax.min.js"></script>
+      <!--RELLAX CONFIG-->
       <script>
         var rellax = new Rellax('.rellax')
       </script>
-
+      <!--AOS CONFIG-->
       <script>AOS.init({
-          offset: 100,
+          offset: 120,
           duration: 3000,
         });
       </script>
-</body>
 
+</body>
 </html>
